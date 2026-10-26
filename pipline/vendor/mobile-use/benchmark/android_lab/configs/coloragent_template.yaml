@@ -1,0 +1,80 @@
+name: ColorAgent
+
+agent:
+    name: MobileUseAgent
+    args:
+      agent_config:
+
+        type: HierarchicalAgent
+
+        vlm:
+          # Here we use GUI-Owl-32B as a example
+          model_name: GUI-Owl-32B
+          api_key: xxxxx
+          base_url: xxxxx
+          max_tokens: 1024
+          temperature: 0
+
+        operator:
+          enabled: true
+          name: OperatorQwen
+          prompt_config: operator_qwen.yaml
+          # # To enable knowledge retrieval, enable the following config.
+          # # See mobile_use/utils/rag/README.md for more details.
+          # knowledge: 
+          #   embedding_model_path: <path-to-embedding-model>
+          #   knowledge_database_dir: <path-to-explored-knowledge-database>
+
+        answer_agent:
+          enabled: true
+          name: AnswerAgentQwen
+          prompt_config: answer_agent_qwen.yaml
+          # # To enable knowledge retrieval, enable the following config.
+          # # See mobile_use/utils/rag/README.md for more details.
+          # knowledge: 
+          #   embedding_model_path: <path-to-embedding-model>
+          #   knowledge_database_dir: <path-to-explored-knowledge-database>
+
+        reflector:
+          enabled: true
+
+        trajectory_reflector:
+          enabled: true
+
+        global_reflector:
+          enabled: true
+
+        progressor:
+          enabled: false
+
+        task_classifier:
+          enabled: true
+
+        task_orchestrator:
+          enabled: true
+
+        task_extractor:
+          enabled: true
+
+        task_rewriter:
+          enabled: true
+
+        enable_hierarchical_planning:
+          enabled: true
+
+
+
+task:
+  class: MobileUse_AutoTest
+  args:
+    save_dir: "./logs/evaluation_mobile_use"
+    max_rounds: 25
+    request_interval: 3
+
+eval:
+  avd_name: Pixel_7_Pro_API_33
+  avd_log_dir: ./logs/evaluation
+  docker: True
+  docker_args:
+    image_name: android_eval:latest
+    port: 6060

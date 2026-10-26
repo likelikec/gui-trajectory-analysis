@@ -1,0 +1,280 @@
+# Mobile Use 📱
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Code: Github](https://img.shields.io/badge/Code-Github-blue?logo=github)](https://github.com/MadeAgents/mobile-use)
+[![Paper: MobileUse](https://img.shields.io/badge/Paper-MobileUse-8A2BE2?logo=gitbook)](https://arxiv.org/abs/2507.16853)
+[![Paper: ColorAgent](https://img.shields.io/badge/Paper-ColorAgent-green?logo=gitbook)](https://arxiv.org/abs/2510.19386)
+
+
+
+<h2 align="center">Mobile Use​: Your AI assistant for mobile - Any app, any task.</h2>
+
+![](docs/assets/framework_new.svg)
+
+
+[ [English](README.md) | [中文](docs/README_zh.md) ]
+
+https://github.com/user-attachments/assets/5c4d3ce8-0135-4e6e-b003-b20f81f834d4
+
+The user inputs the task description on the Web interface, and the agent automatically operates the mobile phone and completes the task.
+
+
+## 🎉 News
+- **[2025/10/22]**: Our [techniqual report](https://arxiv.org/abs/2510.19386), **ColorAgent: Building A Robust, Personalized, and Interactive OS Agent**, now is released! The code is updated to support the agentic framework for both ColorAgent and MobileUse.
+- **[2025/09/19]**: [MobileUse](https://arxiv.org/abs/2507.16853) is accepted by The Thirty-ninth Annual Conference on Neural Information Processing Systems (NeurIPS 2025)!
+- **[2025/09/10]**: We achieved 75% success rate on the AndroidWorld benchmark, ranking first among all screenshot-only solutions! The updated code will be released soon.
+- **[2025/06/13]**: Our [paper](https://arxiv.org/abs/2507.16853), **MobileUse: A Hierarchical Reflection-Driven GUI Agent for Autonomous Mobile Operation**, now is released!
+- **[2025/05/13]**: Mobile Use v0.3.0 now is released! AndroidLab dynamic environment now is support! Significant improvements have been achieved on the two evaluation benchmarks of [AndroidLab](https://github.com/THUDM/Android-Lab) and [AndroidWorld](https://github.com/google-research/android_world).
+- **[2025/03/28]**: The [document](benchmark/android_world/README.md) for running Mobile Use in the AndroidWorld dynamic environment now is released!
+- **[2025/03/17]**: Mobile Use now supports the [multi-agent](mobile_use/agents/multi_agent.py) framework! Equipped with planning, reflection, memorization and progress mechanisms, Mobile Use achieves impressive performance on AndroidWorld!
+- **[2025/03/04]**: Mobile Use is released! We have also released v0.1.0 of [mobile-use](https://github.com/MadeAgents/mobile-use) library, providing you an AI assistant for mobile - Any app, any task!
+
+## 📊 Benchmark
+
+![](docs/assets/benchmark.png)
+
+<!-- ![](docs/assets/androidworld_benchmark.png)
+
+![](docs/assets/androidlab_benchmark.png) -->
+
+
+## ✨ Key Features
+- **Auto-operating the phone**: Automatically operate the UI to complete tasks based on user input descriptions.
+- **Smart Element Recognition**: Automatically parses GUI layouts and identifies operational targets.
+- **Complex Task Processing**: Supports decomposition of complex task and multi-step operations.
+
+## 🚀 Quick Start
+`mobile-use` requires [ADB](https://developer.android.com/tools/adb) to control the phone, which necessitates the prior installation of the relevant tools and connecting the phone to the computer via USB.
+
+### 1. Install SDK Platform-Tools
+- Step 1. Download SDK Platform-Tools for Desktop, click [here](https://developer.android.com/tools/releases/platform-tools#downloads).
+- Step 2. Unzip the downloaded file and add the platform-tools path to the environment variables.
+
+    - Windows
+
+        In Windows, you can add the `platform-tools` PATH to the ` Path` environment variable on the graphical interface (see [here](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10)) or through the command line as follows:
+        ```
+        setx PATH "%PATH%;D:\your\download\path\platform-tools"
+        ```
+
+    - Mac/Linux
+        ```
+        $ echo 'export PATH=/your/downloads/path/platform-tools:$PATH' >> ~/.bashrc
+        $ source ~/.bashrc
+        ```
+- Step 3. Open the command line and enter `adb devices` (Windows: `adb.exe devices`) to verify adb is available or not.
+
+
+### 2. Enable developer mode and open USB debugging on your phone
+<img src="docs/assets/usb_debug_en.png" style="width:30%; height:auto;">
+
+For HyperOS or MIUI, you need to turn on USB Debugging (Security Settings) at the same time.
+
+### 3. Connect your computer and phone using a USB cable. And verify the adb is connected.
+Run the `adb devices` (Windows: `adb.exe devices`) command on the command line terminal. If the device serial_no is listed, the connection is successful. The correct log is as follows:
+```
+List of devices attached
+a22d0110        device
+```
+
+### 4: Install mobile-use
+#### Option 1:  Install package directly
+With pip (Python>=3.10, python=3.12 is recommended.):
+```
+pip install mobile-use
+```
+Note that the mobile-use installed using this method may not be the latest version.
+
+#### Option 2:  Install from source code to apply the latest updates
+```
+# Clone github repo
+git clone https://github.com/MadeAgents/mobile-use.git
+
+# Change directory into project directory
+cd mobile-use
+
+# Install uv if you don't have it already
+pip install uv
+
+# Create a virtual environment and install dependencies
+# We support using Python 3.10, 3.11, 3.12
+uv venv .venv --python=3.12
+
+# Activate the virtual environment
+# For macOS/Linux
+source .venv/bin/activate
+# For Windows
+.venv\Scripts\activate
+
+# Install mobile-use with all dependencies (pip >= 21.1)
+uv pip install -e .
+```
+
+
+### 5. Launch the webui service
+```
+python -m mobile_use.webui
+```
+
+### 6. Usage
+Once the service starts successfully, open the address http://127.0.0.1:7860 in your browser to access the WebUI page, as shown below:
+
+![](docs/assets/webui.png)
+
+Click VLM Configuration to set the Base URL and API Key of the multimodal large language model. It is recommended to use the multimodal large language model of Qwen2.5-VL series.
+
+![alt text](docs/assets/vlm_configuration.png)
+
+Input task descriptions in the input box at the lower left corner, click start to execute tasks.
+
+### 7. Support Chinese characters (Optional)
+
+If you want to input Chinese characters to your phone, for example, to let MobileUse execute a command like this: search for 
+"咖啡" in the Meituan app, you need
+
+- Step 1. Download ADBKeyBoard apk, click [here](https://github.com/senzhk/ADBKeyBoard).
+- Step 2. Install ADBKeyBoard to your phone.
+  ```
+  adb install <path-to-ADBKeyboard.apk>
+  ```
+
+**⚠️ Special Reminder**: The actions are autonomously decided by the intelligent agent, which may pose uncontrollable operational risks. It is recommended that during the experience, you constantly monitor your phone's status. If you encounter any operational risks, promptly terminate the task or use a test phone for the experience to avoid issues caused by accidental operations.
+
+
+## 🎉 More Demo
+Case1：Search the latest news of DeepSeek-R2 in Xiaohongshu APP and forward one of the news to the Weibo App
+
+https://github.com/user-attachments/assets/c44ddf8f-5d3f-4ace-abb3-fab4838b68a4
+
+
+Case2：Order 2 Luckin coffees with Meituan, 1 hot raw coconut latte standard sweet, and 1 cold light jasmine
+
+https://github.com/user-attachments/assets/6130e87e-dd07-4ddf-a64d-051760dbe6b3
+
+
+Case3：用美团点一杯咖啡，冰的，标准糖
+
+https://github.com/user-attachments/assets/fe4847ba-f94e-4baa-b4df-857cadae5b07
+
+
+Case4：用美团帮我点2杯瑞幸咖啡，要生椰拿铁标准糖、热的
+
+https://github.com/user-attachments/assets/5c4d3ce8-0135-4e6e-b003-b20f81f834d4
+
+
+Case5：在浏览器找一张OPPO Find N5图片，询问DeepSeek应用该手机介绍信息，将找到的图片和介绍信息通过小红书发布
+
+https://github.com/user-attachments/assets/4c3d8800-78b7-4323-aad2-8338fe81cb81
+
+
+Case6：帮我去OPPO商城、京东、以及淘宝分别看一下oppofind n5售价是多少
+
+https://github.com/user-attachments/assets/84990487-f2a3-4921-a20e-fcdebfc8fc60
+
+
+Case7: Turn on Bluetooth and WIFI
+
+https://github.com/user-attachments/assets/c82ae51e-f0a2-4c7b-86e8-e3411d9749bb
+
+
+## ⚙️ Advance
+
+### Advance Settings
+**📱 Mobile Settings**
+
+The `Android ADB Server Host` and `Android ADB Server Port` allow you to specify the address and port of the android ADB service, which can be used for remote device connections or local android ADB services on non-default port. When multiple devices exist, you need to specify the `Device Serial No`. The `Reset to HOME` parameter indicates whether to return the phone to the home page before executing the task. If you continue the previous task, you need to cancel this option.
+
+![alt text](docs/assets/mobile_settings.png)
+
+**⚙️ Agent Settings**
+
+The `Max Run Steps` parameter specifies the maximum number of iteration steps for the Agent. If the current task exceeds the maximum number of iteration steps, the task will be stopped. Therefore, you are advised to set a larger value for complex tasks with more operation steps. The `Maximum Latest Screenshot` is to control the number of latest screenshots that the Agent can see. Because pictures consume more tokens, when the task has more steps, Appropriately take a Screenshot of the latest `Maximum Latest Screenshot` and send it to VLM to generate the next operation accordingly. The `Maximum Action Retry` is to control the maximum number of retry times in one step if the action is failed to parsed. The greater the value, the higher the fault tolerance rate of the Agent, but the longer the processing time of the task. 
+
+![alt text](docs/assets/agent_settings.png)
+
+
+**🔧 VLM Configuration**
+
+Click `VLM Configuration` to specify the Base URL and API Key of the multimodal large language model, as well as the model name and temperature coefficient. It is recommended to use the multimodal large language model of Qwen2.5-VL series.
+
+![alt text](docs/assets/vlm_configuration.png)
+
+
+### Use agent with code
+```python
+import logging
+import mobile_use
+from mobile_use.utils.logger import setup_logger
+
+setup_logger(name='mobile_use')
+logger = logging.getLogger('mobile_use')
+
+# Choose the Agent type and setup the config file
+# All agents can be found in `mobile_use/agents` folder.
+# Example configs can be found in `config` folder.
+config_path = "config/mobileuse.yaml"
+agent = mobile_use.Agent.from_params(dict(
+      type="MultiAgent",
+      config_path=config_path,
+    ))
+
+# Run a task
+goal = "Close Wifi"
+
+# Option 1: Directly use the `run` method to run the task
+agent.set_max_steps(10)
+agent.run(input_content = goal)
+
+# Option 2: Only use the `step` method to custom your own running process.
+agent.reset(goal)
+for i in range(10):
+    agent.step()
+    agent.curr_step_idx += 1
+    if agent.status == mobile_use.AgentStatus.FINISHED:
+        break
+```
+
+
+### Benchmark evaluation
+See [benchmark/android_world/README.md](benchmark/android_world/README.md) and [benchmark/android_lab/README.md](benchmark/android_lab/README.md).
+
+## 🗺️ Roadmap
+- [x] Improve agent memory and reflection (summarize, compress.)
+- [x] Provide multi-agent implementation 
+- [x] Provide an evaluation process about AndroidWorld dynamic environment 
+- [ ] Develop an APP that can be installed directly on the phone
+
+
+## 🌱Contributing
+We welcome all forms of contributions! You can share your idea by creating a [Issue](https://github.com/MadeAgents/mobile-use/issues) or merge your code by submitting a [PR](https://github.com/MadeAgents/mobile-use/pulls).
+
+
+## 📜 License
+This project is licensed under the MIT License, which permits free use and modification of the code but requires retaining the original copyright notice.
+
+## 📚 Citation
+If you have used this project in your research or work, please cite:
+```
+@inproceedings{li2025mobileuse,
+  title={MobileUse: A Hierarchical Reflection-Driven {GUI} Agent for Autonomous Mobile Operation},
+  author={Ning Li and Xiangmou Qu and Jiamu Zhou and Jun Wang and Muning Wen and Kounianhua Du and Xingyu Lou and Qiuying Peng and Jun Wang and Weinan Zhang},
+  booktitle={The Thirty-ninth Annual Conference on Neural Information Processing Systems},
+  year={2025},
+  url={https://openreview.net/forum?id=KR6tnkb6h4}
+}
+
+@article{li2025coloragent,
+  title={ColorAgent: Building A Robust, Personalized, and Interactive OS Agent},
+  author={Li, Ning and Lin, Qiqiang and Wu, Zheng and Mo, Xiaoyun and Zhang, Weiming and Zhao, Yin and Qu, Xiangmou and Zhou, Jiamu and Wang, Jun and Zheng, Congmin and others},
+  journal={arXiv preprint arXiv:2510.19386},
+  year={2025}
+}
+```
+
+## 🤝 Acknowledgements
+This project benefits from the contributions of:
+- Inspiration from [browser-use](https://github.com/browser-use/browser-use)
+- The multimodal large language model for the agent is based on [Qwen2.5-VL](https://huggingface.co/collections/Qwen/qwen25-vl-6795ffac22b334a837c0f9a5)
+- The multi-agent implementation is based on [Mobile-Agent](https://github.com/X-PLUG/MobileAgent)
+- The Web UI is built on [Gradio](https://www.gradio.app)
+
+Thanks for their wonderful works.

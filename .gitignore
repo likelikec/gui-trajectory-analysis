@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.DS_Store
+.venv*/
+node_modules/
+pipline/.secrets/
+pipline/.cache/
+pipline/outputs/
+*.inspect.ndjson
+*.zip

@@ -1,0 +1,78 @@
+{
+  "step_idx": 26,
+  "action": {
+    "name": "swipe",
+    "parameters": {
+      "coordinate": [
+        786,
+        835
+      ],
+      "coordinate2": [
+        786,
+        341
+      ]
+    }
+  },
+  "action_s": "{\"name\": \"mobile_use\", \"arguments\": {\"action\": \"swipe\", \"coordinate\": [728, 348], \"coordinate2\": [728, 142]}}",
+  "action_desc": null,
+  "summary": "swipe from (728, 348) to (728, 142) to reveal more file settings.",
+  "answer": null,
+  "plan": null,
+  "sub_goal": null,
+  "progress": null,
+  "reflection_outcome": null,
+  "reflection_error": null,
+  "action_execution": {
+    "sequence": 133,
+    "started_at": "2026-07-21T08:56:05.247062+00:00",
+    "status": "completed",
+    "executor": "adb",
+    "command_kind": "swipe",
+    "requested_action": {
+      "name": "swipe",
+      "parameters": {
+        "coordinate": [
+          786,
+          835
+        ],
+        "coordinate2": [
+          786,
+          341
+        ]
+      },
+      "repr": "swipe(coordinate=(786, 835),coordinate2=(786, 341))"
+    },
+    "actual_coordinates": {
+      "start": [
+        786,
+        835
+      ],
+      "end": [
+        786,
+        341
+      ],
+      "duration_ms": 500
+    },
+    "command": [
+      "/opt/homebrew/bin/adb",
+      "-H",
+      "127.0.0.1",
+      "-P",
+      "5037",
+      "-s",
+      "emulator-5554",
+      "shell",
+      "input",
+      "swipe",
+      "786",
+      "835",
+      "786",
+      "341",
+      "500"
+    ],
+    "command_text": "/opt/homebrew/bin/adb -H 127.0.0.1 -P 5037 -s emulator-5554 shell input swipe 786 835 786 341 500",
+    "note": null,
+    "finished_at": "2026-07-21T08:56:07.827069+00:00"
+  },
+  "step_duration": 36.039966750000076
+}

@@ -1,0 +1,362 @@
+[
+  {
+    "step": 1,
+    "label": "N",
+    "rationale": "Opening Markor directly advanced the requested file-editing task.",
+    "action": "{\"name\": \"open\", \"parameters\": {\"text\": \"Markor\"}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/001_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/001_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/001_step.json",
+    "decision_summary": "Open the Markor app."
+  },
+  {
+    "step": 2,
+    "label": "N",
+    "rationale": "The click selected strong_jacket_h1hZ.txt and opened the correct file.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [484, 1200]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/002_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/002_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/002_step.json",
+    "decision_summary": "Click on the file \"strong_jacket_h1hZ.txt\"."
+  },
+  {
+    "step": 3,
+    "label": "N",
+    "rationale": "Clicking the document text focused the editor and displayed the keyboard.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [259, 360]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/003_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/003_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/003_step.json",
+    "decision_summary": "Click on the text area to focus on it."
+  },
+  {
+    "step": 4,
+    "label": "N",
+    "rationale": "The clear action removed the old content as required before replacement.",
+    "action": "{\"name\": \"clear_text\", \"parameters\": {}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/004_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/004_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/004_step.json",
+    "decision_summary": "Clear the text in the input box."
+  },
+  {
+    "step": 5,
+    "label": "N",
+    "rationale": "The action entered the exact requested content, inNqu8UNNtyXBHCZpYp7.",
+    "action": "{\"name\": \"type\", \"parameters\": {\"text\": \"inNqu8UNNtyXBHCZpYp7\"}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/005_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/005_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/005_step.json",
+    "decision_summary": "Type \"inNqu8UNNtyXBHCZpYp7\" into the text area."
+  },
+  {
+    "step": 6,
+    "label": "N",
+    "rationale": "The click targeted Save, after which the save control became disabled, consistent with saving the edit.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [816, 211]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/006_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/006_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/006_step.json",
+    "decision_summary": "Click the save icon to save the changes to the file."
+  },
+  {
+    "step": 7,
+    "label": "N",
+    "rationale": "Opening the overflow menu was a reasonable step toward locating file operations.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1024, 211]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/007_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/007_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/007_step.json",
+    "decision_summary": "Click the three dots menu icon in the top right corner."
+  },
+  {
+    "step": 8,
+    "label": "N",
+    "rationale": "Opening File settings was reasonable initial exploration for a rename control.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [812, 211]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/008_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/008_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/008_step.json",
+    "decision_summary": "Click on \"File settings\"."
+  },
+  {
+    "step": 9,
+    "label": "N",
+    "rationale": "The outside click closed File settings after it showed no rename option.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [216, 480]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/009_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/009_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/009_step.json",
+    "decision_summary": "Click outside the menu to close it."
+  },
+  {
+    "step": 10,
+    "label": "N",
+    "rationale": "Reopening the main overflow menu was appropriate for seeking another file-operation path.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1024, 211]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/010_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/010_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/010_step.json",
+    "decision_summary": "Click the three dots menu icon in the top right corner."
+  },
+  {
+    "step": 11,
+    "label": "E",
+    "rationale": "The action reentered the same File settings submenu already observed to contain no rename control.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [812, 214]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/011_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/011_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/011_step.json",
+    "decision_summary": "Click on \"File settings\" to access the rename option."
+  },
+  {
+    "step": 12,
+    "label": "N",
+    "rationale": "One swipe was reasonable exploration of whether the File settings popup had additional off-screen entries.",
+    "action": "{\"name\": \"swipe\", \"parameters\": {\"coordinate\": [786, 835], \"coordinate2\": [786, 240]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/012_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/012_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/012_step.json",
+    "decision_summary": "Swipe up on the \"File settings\" menu to see more options."
+  },
+  {
+    "step": 13,
+    "label": "E",
+    "rationale": "The identical swipe was repeated after the prior swipe left the fully visible popup unchanged.",
+    "action": "{\"name\": \"swipe\", \"parameters\": {\"coordinate\": [786, 835], \"coordinate2\": [786, 341]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/013_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/013_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/013_step.json",
+    "decision_summary": "swipe from (728, 348) to (728, 142) to reveal more file settings."
+  },
+  {
+    "step": 14,
+    "label": "E",
+    "rationale": "Another swipe on the unchanged, non-scrolling File settings popup could not reveal a rename option.",
+    "action": "{\"name\": \"swipe\", \"parameters\": {\"coordinate\": [786, 835], \"coordinate2\": [786, 341]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/014_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/014_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/014_step.json",
+    "decision_summary": "swipe from (728, 348) to (728, 142) to reveal more file settings."
+  },
+  {
+    "step": 15,
+    "label": "E",
+    "rationale": "The action again repeated an ineffective swipe despite multiple unchanged states.",
+    "action": "{\"name\": \"swipe\", \"parameters\": {\"coordinate\": [786, 835], \"coordinate2\": [786, 341]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/015_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/015_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/015_step.json",
+    "decision_summary": "swipe from (728, 348) to (728, 142) to reveal more file settings."
+  },
+  {
+    "step": 16,
+    "label": "E",
+    "rationale": "Continuing to swipe the static popup was concretely unproductive after repeated no-change evidence.",
+    "action": "{\"name\": \"swipe\", \"parameters\": {\"coordinate\": [786, 835], \"coordinate2\": [786, 341]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/016_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/016_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/016_step.json",
+    "decision_summary": "swipe from (728, 348) to (728, 142) to reveal more file settings."
+  },
+  {
+    "step": 17,
+    "label": "E",
+    "rationale": "The click targeted the visible Format row, not a Rename option, and opened the Format submenu.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [786, 835]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/017_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/017_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/017_step.json",
+    "decision_summary": "Click on the \"Rename\" option in the file settings menu."
+  },
+  {
+    "step": 18,
+    "label": "E",
+    "rationale": "Clicking inside the Format popup header did nothing and did not pursue an available rename control.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1030, 211]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/018_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/018_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/018_step.json",
+    "decision_summary": "Click the three dots menu icon again to access file settings."
+  },
+  {
+    "step": 19,
+    "label": "N",
+    "rationale": "The outside click correctly closed the mistakenly opened Format submenu.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [270, 1200]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/019_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/019_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/019_step.json",
+    "decision_summary": "Click outside the menu to close it."
+  },
+  {
+    "step": 20,
+    "label": "N",
+    "rationale": "Opening the main overflow menu again was a valid recovery step after closing Format.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1023, 211]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/020_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/020_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/020_step.json",
+    "decision_summary": "Click the three-dot menu icon in the top right corner."
+  },
+  {
+    "step": 21,
+    "label": "E",
+    "rationale": "The action returned to File settings despite already establishing that this submenu lacks Rename.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [812, 214]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/021_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/021_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/021_step.json",
+    "decision_summary": "click on \"File settings\" to open the submenu."
+  },
+  {
+    "step": 22,
+    "label": "E",
+    "rationale": "The swipe repeated a maneuver already shown several times not to scroll this popup.",
+    "action": "{\"name\": \"swipe\", \"parameters\": {\"coordinate\": [786, 835], \"coordinate2\": [786, 341]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/022_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/022_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/022_step.json",
+    "decision_summary": "swipe from (728, 348) to (728, 142) to reveal more file settings."
+  },
+  {
+    "step": 23,
+    "label": "E",
+    "rationale": "Another identical swipe left the same five File settings entries visible and made no progress.",
+    "action": "{\"name\": \"swipe\", \"parameters\": {\"coordinate\": [786, 835], \"coordinate2\": [786, 341]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/023_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/023_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/023_step.json",
+    "decision_summary": "swipe from (728, 348) to (728, 142) to reveal more file settings."
+  },
+  {
+    "step": 24,
+    "label": "E",
+    "rationale": "The agent again swiped a static menu despite accumulated evidence that no hidden Rename entry existed.",
+    "action": "{\"name\": \"swipe\", \"parameters\": {\"coordinate\": [786, 835], \"coordinate2\": [786, 341]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/024_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/024_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/024_step.json",
+    "decision_summary": "Swipe up on the \"File settings\" menu to reveal more options."
+  },
+  {
+    "step": 25,
+    "label": "E",
+    "rationale": "Repeating the same ineffective swipe on the unchanged popup was a concrete navigation error.",
+    "action": "{\"name\": \"swipe\", \"parameters\": {\"coordinate\": [786, 835], \"coordinate2\": [786, 341]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/025_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/025_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/025_step.json",
+    "decision_summary": "swipe from (728, 348) to (728, 142) to reveal more file settings."
+  },
+  {
+    "step": 26,
+    "label": "E",
+    "rationale": "The action persisted with the known ineffective swipe and produced no menu movement.",
+    "action": "{\"name\": \"swipe\", \"parameters\": {\"coordinate\": [786, 835], \"coordinate2\": [786, 341]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/026_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/026_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/026_step.json",
+    "decision_summary": "swipe from (728, 348) to (728, 142) to reveal more file settings."
+  },
+  {
+    "step": 27,
+    "label": "E",
+    "rationale": "Yet another identical swipe left File settings unchanged and did not address renaming.",
+    "action": "{\"name\": \"swipe\", \"parameters\": {\"coordinate\": [786, 835], \"coordinate2\": [786, 341]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/027_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/027_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/027_step.json",
+    "decision_summary": "swipe from (728, 348) to (728, 142) to reveal more file settings."
+  },
+  {
+    "step": 28,
+    "label": "E",
+    "rationale": "The repeated swipe was contrary to extensive prior evidence that this popup does not scroll.",
+    "action": "{\"name\": \"swipe\", \"parameters\": {\"coordinate\": [786, 835], \"coordinate2\": [786, 341]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/028_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/028_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/028_step.json",
+    "decision_summary": "swipe from (728, 348) to (728, 142)"
+  },
+  {
+    "step": 29,
+    "label": "E",
+    "rationale": "The agent continued the same ineffective gesture with the popup visibly unchanged.",
+    "action": "{\"name\": \"swipe\", \"parameters\": {\"coordinate\": [786, 835], \"coordinate2\": [786, 341]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/029_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/029_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/029_step.json",
+    "decision_summary": "swipe from (728, 348) to (728, 142) to reveal more file settings."
+  },
+  {
+    "step": 30,
+    "label": "E",
+    "rationale": "The final retained action again swiped the static File settings popup and produced no task-relevant effect.",
+    "action": "{\"name\": \"swipe\", \"parameters\": {\"coordinate\": [786, 835], \"coordinate2\": [786, 341]}}",
+    "images": {
+      "before": "cases/gemini/P1/MarkorChangeNoteContent_0/030_before.png",
+      "after": "cases/gemini/P1/MarkorChangeNoteContent_0/030_after.png"
+    },
+    "record": "cases/gemini/P1/MarkorChangeNoteContent_0/030_step.json",
+    "decision_summary": "swipe from (728, 348) to (728, 142) to reveal more file settings."
+  }
+]

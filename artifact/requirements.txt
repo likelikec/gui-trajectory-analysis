@@ -1,0 +1,9 @@
+# Numerical environment used for this release. Python 3.11; C++17 compiler for GUI bootstrap.
+numpy==1.26.4
+pandas==2.1.4
+scipy==1.17.1
+statsmodels==0.15.0
+patsy==1.0.3
+matplotlib==3.6.1
+
+openpyxl==3.1.5

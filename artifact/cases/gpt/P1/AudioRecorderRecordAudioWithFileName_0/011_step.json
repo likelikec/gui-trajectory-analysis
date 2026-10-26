@@ -1,0 +1,20 @@
+{
+  "step_idx": 10,
+  "action": {
+    "name": "terminate",
+    "parameters": {
+      "status": "success"
+    }
+  },
+  "action_s": "{\"name\":\"mobile_use\",\"arguments\":{\"action\":\"terminate\",\"status\":\"success\"}}",
+  "action_desc": null,
+  "summary": "Terminate successfully.",
+  "answer": null,
+  "plan": null,
+  "sub_goal": null,
+  "progress": null,
+  "reflection_outcome": null,
+  "reflection_error": null,
+  "action_execution": null,
+  "step_duration": 4.325081986011355
+}

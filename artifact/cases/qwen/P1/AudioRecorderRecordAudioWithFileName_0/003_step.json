@@ -1,0 +1,22 @@
+{
+  "step_idx": 2,
+  "action": {
+    "name": "click",
+    "parameters": {
+      "coordinate": [
+        539,
+        2148
+      ]
+    }
+  },
+  "action_s": "{\"name\": \"mobile_use\", \"arguments\": {\"action\": \"click\", \"coordinate\": [499, 894]}}",
+  "action_desc": null,
+  "summary": "\"Tap on the \\\"Get started\\\" button to proceed to the recording interface.\"",
+  "answer": null,
+  "plan": null,
+  "sub_goal": null,
+  "progress": null,
+  "reflection_outcome": null,
+  "reflection_error": null,
+  "step_duration": null
+}

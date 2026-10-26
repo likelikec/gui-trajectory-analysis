@@ -1,0 +1,519 @@
+import logging
+from typing import Iterator
+import os
+import pickle
+import gzip
+import io
+import json
+import time
+import traceback
+
+from mobile_use.schema.schema import *
+from mobile_use.environment.mobile_environ import Environment
+from mobile_use.utils.vlm import VLMWrapper
+from mobile_use.utils.utils import encode_image_url, smart_resize, show_message
+from mobile_use.agents import Agent
+from mobile_use.agents.sub_agent import *
+from mobile_use.schema.config import SubAgentConfig, MultiAgentConfig
+
+try:
+    from study.gpt5_6_adapter import (
+        is_gpt56_adapter,
+        preserve_gpt56_raw_response,
+    )
+except ImportError:  # Keep the mobile-use package independent when standalone.
+    def is_gpt56_adapter(_vlm) -> bool:
+        return False
+
+    def preserve_gpt56_raw_response(record, _response):
+        return record
+
+logger = logging.getLogger(__name__)
+
+
+@Agent.register('MultiAgent')
+class MultiAgent(Agent):
+    def __init__(self, config_path: str = None, **kwargs):
+        super().__init__(config_path, **kwargs)
+        if config_path is not None:
+            self.config = MultiAgentConfig.from_yaml(config_path)
+        else:
+            self.config = MultiAgentConfig(**kwargs)
+
+        self.subagent_map = {
+            'Operator': Operator,
+            'TrainedOperator': TrainedOperator,
+            'OperatorQwen': OperatorQwen,
+            'OperatorGPT': OperatorGPT,
+            'AnswerAgent': AnswerAgent,
+            'TrainedAnswerAgent': TrainedAnswerAgent,
+            'AnswerAgentQwen': AnswerAgentQwen,
+            'AnswerAgentGPT': AnswerAgentGPT,
+        }
+
+        self._init_sub_agents()
+
+        self.max_action_retry = self.config.max_action_retry
+        self.reflect_on_demand = self.config.reflect_on_demand
+        self.logprob_threshold = self.config.logprob_threshold
+        self.enable_pre_reflection = self.config.enable_pre_reflection
+        self._missing_logprobs_warned = False
+
+    def _init_data(self, goal: str=''):
+        super()._init_data(goal)
+        self.trajectory: List[MobileUseStepData] = []
+        self.episode_data: MobileUseEpisodeData = MobileUseEpisodeData(goal=goal, num_steps=0, trajectory=self.trajectory)
+
+
+    def _init_sub_agent(self, sub_agent_class: SubAgent, sub_agent_config: Optional[SubAgentConfig]) -> Optional[SubAgent]:
+        if sub_agent_config and sub_agent_config.enabled:
+            if sub_agent_config.vlm is None:
+                sub_agent_config.vlm = self.config.vlm
+            return sub_agent_class(sub_agent_config)
+        return None
+
+    def _init_sub_agents(self):
+        operator_class = self.subagent_map[self.config.operator.name] if self.config.operator else None
+        answer_agent_class = self.subagent_map[self.config.answer_agent.name] if self.config.answer_agent else None
+        self.planner = self._init_sub_agent(Planner, self.config.planner)
+        self.operator = self._init_sub_agent(operator_class, self.config.operator)
+        self.answer_agent = self._init_sub_agent(answer_agent_class, self.config.answer_agent)
+        self.reflector = self._init_sub_agent(Reflector, self.config.reflector)
+        self.trajectory_reflector = self._init_sub_agent(TrajectoryReflector, self.config.trajectory_reflector)
+        self.global_reflector = self._init_sub_agent(GlobalReflector, self.config.global_reflector)
+        self.progressor = self._init_sub_agent(Progressor, self.config.progressor)
+        self.note_taker = self._init_sub_agent(NoteTaker, self.config.note_taker)
+        self.agents = [
+            self.planner, self.operator, self.answer_agent, self.reflector,
+            self.trajectory_reflector, self.global_reflector, self.progressor, self.note_taker
+        ]
+
+    def reset(self, goal: str='', max_steps: int = None) -> None:
+        """Reset the state of the agent.
+        """
+        self._init_data(goal=goal)
+        if isinstance(max_steps, int):
+            self.set_max_steps(max_steps)
+        for agent in self.agents:
+            if agent:
+                agent.reset()
+
+    def _get_curr_step_data(self):
+        if len(self.trajectory) > self.curr_step_idx:
+            return self.trajectory[self.curr_step_idx]
+        else:
+            return None
+
+    def get_action_type_logprobs(self, response):
+        action_type_tokens, action_type_logprobs = None, None
+        tokens, logprobs = [], []
+        response_logprobs = getattr(response.choices[0], "logprobs", None)
+        content_logprobs = getattr(response_logprobs, "content", None) if response_logprobs else None
+        if not content_logprobs:
+            return None, None
+
+        for item in content_logprobs:
+            tokens.append(item.token)
+            logprobs.append(item.logprob)
+
+        start_index = next((i for i in range(len(tokens) - 1, -1, -1) if 'action' in tokens[i]), None)
+        if start_index is not None:
+            end_index = next((i for i in range(start_index + 1, len(tokens)) if ',' in tokens[i]), None)
+            if end_index is not None:
+                action_type_idxs = [i for i in range(start_index + 1, end_index) if any(c.isalpha() for c in tokens[i])]
+                action_type_tokens = [tokens[i] for i in action_type_idxs]
+                action_type_logprobs = [logprobs[i] for i in action_type_idxs]
+                logger.info("Action type tokens: %s" % action_type_tokens)
+                logger.info("Action type logprobs: %s" % action_type_logprobs)
+        return action_type_tokens, action_type_logprobs
+
+    def step(self):
+        """Execute the task with maximum number of steps.
+
+        Returns: Answer
+        """
+        start_time = time.time()
+        logger.info("Step %d ... ..." % self.curr_step_idx)
+        answer = None
+        show_step = [0,4]
+        call_history = []
+
+        def _predict(agent_obj, messages, *, stage: str, **kwargs):
+            response = agent_obj.vlm.predict(messages, **kwargs)
+            record = agent_obj.vlm.build_call_record(messages, response, stage=stage)
+            if is_gpt56_adapter(agent_obj.vlm):
+                preserve_gpt56_raw_response(record, response)
+            call_history.append(record)
+            return response
+
+        # Get the current environment screen
+        env_state = self.env.get_state()
+        pixels = env_state.pixels
+        resized_height, resized_width = smart_resize(height=pixels.height, width=pixels.width)
+
+        # Add new step data
+        self.trajectory.append(MobileUseStepData(
+            step_idx=self.curr_step_idx,
+            curr_env_state=env_state,
+        ))
+        step_data = self.trajectory[-1]
+        step_data.vlm_call_history = call_history
+        step_data.reflect_on_demand = self.reflect_on_demand
+        step_data.skip_reflector = False
+        step_data.skip_reflector_reason = None
+
+        # Call planner
+        if self.planner:
+            plan_messages = self.planner.get_message(self.episode_data)
+            if self.curr_step_idx in show_step:
+                show_message(plan_messages, "Planner")
+            response = _predict(self.planner, plan_messages, stage="planner")
+            try:
+                raw_plan = response.choices[0].message.content
+                logger.info("Plan from VLM:\n%s" % raw_plan)
+                plan_thought, plan, current_subgoal = self.planner.parse_response(raw_plan)
+                logger.info("PLAN THOUGHT: %s" % plan_thought)
+                logger.info("PLAN: %s" % plan)
+                logger.info("CURRENT SUBGOAL: %s" % current_subgoal)
+                step_data.plan = plan
+                step_data.sub_goal = current_subgoal
+            except Exception as e:
+                logger.warning(f"Failed to parse the plan. Error: {e}")
+
+        # Call Operator
+        action_thought, action, action_s, action_desc = None, None, None, None
+        skip_reflector = False
+        operator_messages = self.operator.get_message(self.episode_data)
+        if self.curr_step_idx in show_step:
+            show_message(operator_messages, "Operator")
+        response = _predict(
+            self.operator,
+            operator_messages,
+            stage="operator",
+            logprobs=self.reflect_on_demand,
+        )
+
+        gpt56_mode = bool(self.operator and is_gpt56_adapter(self.operator.vlm))
+        last_parse_error = None
+        if gpt56_mode:
+            retry_count = 0
+            while True:
+                try:
+                    raw_action = response.choices[0].message.content
+                    logger.info("Action from VLM:\n%s" % raw_action)
+                    action_thought, action, action_s, action_desc = self.operator.parse_response(
+                        raw_action
+                    )
+                    logger.info("ACTION THOUGHT: %s" % action_thought)
+                    logger.info("ACTION: %s" % str(action))
+                    logger.info("ACTION DESCRIPTION: %s" % action_desc)
+                    break
+                except Exception as e:
+                    action = None
+                    last_parse_error = str(e.args[0] if e.args else e)
+                    logger.warning(f"Failed to parse the action. Error is {e.args}")
+                    if retry_count >= self.max_action_retry:
+                        break
+                    operator_messages.append(
+                        {
+                            "role": "user",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": (
+                                        f"Failed to parse the action. Error is {e.args}\n"
+                                        "Please follow the output format to provide a valid action:"
+                                    ),
+                                }
+                            ],
+                        }
+                    )
+                    response = _predict(
+                        self.operator, operator_messages, stage="operator_retry"
+                    )
+                    retry_count += 1
+            if retry_count:
+                operator_messages = operator_messages[:-retry_count]
+        else:
+            for counter in range(self.max_action_retry):
+                try:
+                    raw_action = response.choices[0].message.content
+                    logger.info("Action from VLM:\n%s" % raw_action)
+                    resized_size = (resized_width, resized_height)
+                    action_thought, action, action_s, action_desc = self.operator.parse_response(raw_action)
+                    logger.info("ACTION THOUGHT: %s" % action_thought)
+                    logger.info("ACTION: %s" % str(action))
+                    logger.info("ACTION DESCRIPTION: %s" % action_desc)
+                    break
+                except Exception as e:
+                    logger.warning(f"Failed to parse the action. Error is {e.args}")
+                    error_prompt = f"Failed to parse the action. Error is {e.args}\nPlease follow the output format to provide a valid action:"
+                    msg = {"role": "user", "content": [{"type": "text", "text": error_prompt}]}
+                    operator_messages.append(msg)
+                    response = _predict(self.operator, operator_messages, stage="operator_retry")
+            if counter > 0:
+                operator_messages = operator_messages[:-counter]
+
+        if action is None:
+            logger.warning(
+                "Action parse error after max retry%s.",
+                f": {last_parse_error}" if last_parse_error else "",
+            )
+            if gpt56_mode:
+                step_data.action_desc = f"GPT protocol failure: {last_parse_error or 'unknown_action_parse_error'}"
+                step_data.action_s = json.dumps(
+                    {
+                        "action": "protocol_error",
+                        "reason": last_parse_error or "unknown_action_parse_error",
+                    },
+                    ensure_ascii=False,
+                    separators=(",", ":"),
+                )
+        else:
+            try:
+                if action.name == 'terminate':
+                    if action.parameters['status'] == 'success':
+                        logger.info(f"Finished: {action}")
+                        self.status = AgentStatus.FINISHED
+                        self.episode_data.finish_count += 1
+                    elif action.parameters['status'] == 'failure':
+                        logger.info(f"Failed: {action}")
+                        self.status = AgentStatus.FAILED
+                elif action.name == 'take_note':
+                    logger.info(f"Take note: {action}")
+                    self.episode_data.memory += action.parameters['text'].strip()
+                    self.episode_data.memory += "\n"
+                    logger.info(f"Current Memory: {self.episode_data.memory}")
+                    skip_reflector = True
+                    step_data.skip_reflector_reason = "take_note_updates_memory_without_device_action"
+                elif action.name == 'answer':
+                    logger.info(f"Answer: {action}")
+                    answer = action.parameters['text'].strip()
+                    step_data.answer = answer
+                    self.status = AgentStatus.FINISHED
+                    logger.info("Terminate the task after answering question.")
+                elif self.enable_pre_reflection and action.name == 'type' and len(self.trajectory) > 1 and \
+                    self.trajectory[-2].action is not None and self.trajectory[-2].action.name == 'type' and \
+                    'coordinate' not in action.parameters:
+                    skip_reflector = True
+                    step_data.skip_reflector_reason = "pre_reflection_continuous_type_without_coordinate"
+                    step_data.reflection_outcome = 'C'
+                    step_data.reflection_error = "Action executed failed. You should first click the corresponding text field before typing in text."
+                    logger.info(f"Skip the reflector since there is continuous type action.")
+                else:
+                    logger.info(f"Execute the action: {action}")
+                    start_exec_time = time.time()
+                    self.env.execute_action(action)
+                    step_data.exec_duration = time.time() - start_exec_time
+            except Exception as e:
+                logger.warning(f"Failed to execute the action: {action}. Error: {traceback.format_exc()}")
+                action = None
+
+        if action is not None:
+            step_data.thought = action_thought
+            step_data.action_desc = action_desc
+            step_data.action_s = action_s
+            step_data.action = action
+
+            if self.reflector and self.reflect_on_demand:
+                action_type_tokens, action_type_logprobs = None, None
+                try:
+                    action_type_tokens, action_type_logprobs = self.get_action_type_logprobs(response)
+                except Exception as e:
+                    logger.warning(f"Failed to get the logprobs. Error: {e}")
+                if action_type_tokens is not None and action_type_logprobs is not None:
+                    avg_logprob = sum(action_type_logprobs) / len(action_type_logprobs)
+                    logger.info(f"Average action type logprobs: {avg_logprob}")
+                    step_data.action_type_tokens = action_type_tokens
+                    step_data.action_type_logprobs = action_type_logprobs
+                    if avg_logprob > self.logprob_threshold:
+                        logger.info(f"Skip the reflector since the action type logprobs is lower than the threshold.")
+                        skip_reflector = True
+                        step_data.skip_reflector_reason = (
+                            f"action_type_avg_logprob={avg_logprob:.6f} > threshold={self.logprob_threshold:.6f}"
+                        )
+                elif not self._missing_logprobs_warned:
+                    logger.info(
+                        "Operator response did not include logprobs; keeping the original reflector path."
+                    )
+                    self._missing_logprobs_warned = True
+
+        step_data.exec_env_state = self.env.get_state()
+
+        step_data.skip_reflector = bool(skip_reflector)
+
+        if self.status not in [AgentStatus.FINISHED, AgentStatus.FAILED] and action is not None:
+            # Call NoteTaker
+            if self.note_taker:
+                note_messages = self.note_taker.get_message(self.episode_data)
+                if self.curr_step_idx in show_step:
+                    show_message(note_messages, "NoteTaker")
+                response = _predict(self.note_taker, note_messages, stage="note_taker")
+                try:
+                    content = response.choices[0].message.content
+                    logger.info("Note from VLM:\n%s" % content)
+                    note = self.note_taker.parse_response(content)
+                    if note is not None:
+                        logger.info("Note: %s" % note)
+                        self.episode_data.memory = note.strip()
+                        logger.info(f"Current Memory: {self.episode_data.memory}")
+                except Exception as e:
+                    logger.warning(f"Failed to parse the note. Error: {e}")
+
+            # Call Reflector
+            if self.reflector and not skip_reflector:
+                reflection_messages = self.reflector.get_message(self.episode_data)
+                if self.curr_step_idx in show_step:
+                    show_message(reflection_messages, "Reflector")
+                response = _predict(self.reflector, reflection_messages, stage="reflector")
+                try:
+                    content = response.choices[0].message.content
+                    logger.info("Reflection from VLM:\n%s" % content)
+                    outcome, error_description = self.reflector.parse_response(content)
+                    if outcome in self.reflector.valid_options:
+                        logger.info("Reflection Outcome: %s" % outcome)
+                        logger.info("Reflection Error: %s" % error_description)
+                        step_data.reflection_outcome = outcome
+                        step_data.reflection_error = error_description
+                except Exception as e:
+                    logger.warning(f"Failed to parse the reflection. Error: {e}")
+
+            # Call Progressor
+            if self.progressor:
+                progressor_messages = self.progressor.get_message(self.episode_data)
+                if self.curr_step_idx in show_step:
+                    show_message(progressor_messages, "Progressor")
+                response = _predict(self.progressor, progressor_messages, stage="progressor")
+                try:
+                    content = response.choices[0].message.content
+                    logger.info("Progress from VLM:\n%s" % content)
+                    progress = self.progressor.parse_response(content)
+                    logger.info("Progress: %s" % progress)
+                    step_data.progress = progress
+                except Exception as e:
+                    logger.warning(f"Failed to parse the progress. Error: {e}")
+
+            # Call TrajectoryReflector
+            if self.trajectory_reflector:
+                detected_error, trajectory_reflection_messages = self.trajectory_reflector.get_message(self.episode_data)
+                if trajectory_reflection_messages is not None:
+                    if self.curr_step_idx in [4,9]:
+                        show_message(trajectory_reflection_messages, "TrajectoryReflector")
+                    response = _predict(
+                        self.trajectory_reflector,
+                        trajectory_reflection_messages,
+                        stage="trajectory_reflector",
+                    )
+                    try:
+                        content = response.choices[0].message.content
+                        logger.info("Trajectory Reflection from VLM:\n%s" % content)
+                        outcome, error_description = self.trajectory_reflector.parse_response(content)
+                        if detected_error is not None:
+                            error_description = detected_error + "\n" + error_description
+                        if outcome in self.trajectory_reflector.valid_options:
+                            logger.info("Trajectory Reflection Outcome: %s" % outcome)
+                            logger.info("Trajectory Reflection Error: %s" % error_description)
+                            step_data.trajectory_reflection_outcome = outcome
+                            step_data.trajectory_reflection_error = error_description
+                    except Exception as e:
+                        logger.warning(f"Failed to parse the trajectory reflection. Error: {e}")
+
+        # Call AnswerAgent
+        if self.status == AgentStatus.FINISHED and answer is None and self.answer_agent:
+            answer_messages = self.answer_agent.get_message(self.episode_data)
+            show_message(answer_messages, "Answer")
+            response = _predict(self.answer_agent, answer_messages, stage="answer_agent")
+            try:
+                content = response.choices[0].message.content
+                logger.info("Answer from VLM:\n%s" % content)
+                _, answer_action, _, _ = self.answer_agent.parse_response(content)
+                answer = answer_action.parameters['text']
+                step_data.answer = answer
+                logger.info("Answer: %s" % answer)
+            except Exception as e:
+                logger.warning(f"Failed to get the answer. Error: {e}")
+            
+            # Call GlobalReflector
+            if self.global_reflector and self.episode_data.finish_count == 1:
+                evaluator_messages = self.global_reflector.get_message(self.episode_data)
+                show_message(evaluator_messages, "Evaluator")
+                logger.info("Evaluating...")
+                response = _predict(self.global_reflector, evaluator_messages, stage="global_reflector")
+                result, reason = None, None
+                try:
+                    content = response.choices[0].message.content
+                    logger.info("Evaluation from VLM:\n%s" % content)
+                    result, reason = self.global_reflector.parse_response(content)
+                    logger.info("Evaluation Result: %s" % result)
+                    logger.info("Evaluation Reason: %s" % reason)
+                except Exception as e:
+                    logger.warning(f"Failed to parse the evaluation. Error: {e}")
+                if result is not None and 'Failed' in result:
+                    logger.info("Evaluator determines that the task is not completed for the first time. Will remove the FINISH status.")
+                    self.status = None
+                    step_data.evaluation_result = result
+                    step_data.evaluation_reason = reason
+
+        step_data.memory = self.episode_data.memory
+        step_data.step_duration = time.time() - start_time
+        return step_data
+
+
+    def iter_run(self, input_content: str) -> Iterator[MobileUseStepData]:
+        """Execute the agent with user input content.
+
+        Returns: Iterator[MobileUseStepData]
+        """
+
+        if self.state == AgentState.READY:
+            self.reset(goal=input_content)
+            logger.info("Start task: %s, with at most %d steps" % (self.goal, self.max_steps))
+        elif self.state == AgentState.CALLUSER:
+            self._user_input = input_content      # user answer
+            self.state = AgentState.RUNNING       # reset agent state
+            logger.info("Continue task: %s, with user input %s" % (self.goal, input_content))
+        else:
+            raise Exception('Error agent state')
+
+        for step_idx in range(self.curr_step_idx, self.max_steps):
+            self.curr_step_idx = step_idx
+            # show init environment
+            yield SingleAgentStepData(
+                step_idx=self.curr_step_idx,
+                curr_env_state=self.env.get_state(),
+                vlm_call_history=[]
+            )
+            try:
+                self.step()
+            except Exception as e:
+                self.status = AgentStatus.FAILED
+                self.episode_data.status = self.status
+                self.episode_data.message = str(e)
+                yield self._get_curr_step_data()
+                return
+
+            self.episode_data.num_steps = step_idx + 1
+            self.episode_data.status = self.status
+
+            if self.status == AgentStatus.FINISHED:
+                logger.info("Agent indicates task is done.")
+                self.episode_data.message = 'Agent indicates task is done'
+                yield self._get_curr_step_data()
+                return
+            elif self.state == AgentState.CALLUSER:
+                logger.info("Agent indicates to ask user for help.")
+                yield self._get_curr_step_data()
+                return
+            else:
+                logger.info("Agent indicates one step is done.")
+            yield self._get_curr_step_data()
+        logger.warning(f"Agent reached max number of steps: {self.max_steps}.")
+
+    def run(self, input_content: str) -> MobileUseEpisodeData:
+        """Execute the agent with user input content.
+
+        Returns: EpisodeData
+        """
+        for _ in self.iter_run(input_content):
+            pass
+        return self.episode_data

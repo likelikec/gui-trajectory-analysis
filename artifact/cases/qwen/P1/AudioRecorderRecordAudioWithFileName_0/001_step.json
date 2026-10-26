@@ -1,0 +1,26 @@
+{
+  "step_idx": 0,
+  "action": {
+    "name": "swipe",
+    "parameters": {
+      "coordinate": [
+        539,
+        1783
+      ],
+      "coordinate2": [
+        533,
+        689
+      ]
+    }
+  },
+  "action_s": "{\"name\": \"mobile_use\", \"arguments\": {\"action\": \"swipe\", \"coordinate\": [499, 742], \"coordinate2\": [493, 287]}}",
+  "action_desc": null,
+  "summary": "\"Swipe up from the bottom of the screen to open the app drawer and search for the Audio Recorder app.\"",
+  "answer": null,
+  "plan": null,
+  "sub_goal": null,
+  "progress": null,
+  "reflection_outcome": null,
+  "reflection_error": null,
+  "step_duration": null
+}

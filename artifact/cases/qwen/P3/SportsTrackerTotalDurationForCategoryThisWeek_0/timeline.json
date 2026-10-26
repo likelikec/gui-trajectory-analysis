@@ -1,0 +1,26 @@
+[
+  {
+    "step": 1,
+    "label": "N",
+    "rationale": "Opening OpenTracks correctly exposed this week's activity list for the requested duration calculation.",
+    "action": "{\"action\": \"open_app\", \"text\": \"OpenTracks\"}",
+    "images": {
+      "before": "cases/qwen/P3/SportsTrackerTotalDurationForCategoryThisWeek_0/001_before.png",
+      "after": "cases/qwen/P3/SportsTrackerTotalDurationForCategoryThisWeek_0/001_after.png"
+    },
+    "record": "cases/qwen/P3/SportsTrackerTotalDurationForCategoryThisWeek_0/001_step.json",
+    "decision_summary": "Open the OpenTracks app to begin accessing the activities data."
+  },
+  {
+    "step": 2,
+    "label": "N",
+    "rationale": "The visible running-icon activities last 30 minutes and 1:15:00, which sum to the submitted 105 minutes.",
+    "action": "{\"action\": \"answer\", \"text\": \"105\"}",
+    "images": {
+      "before": "cases/qwen/P3/SportsTrackerTotalDurationForCategoryThisWeek_0/002_before.png",
+      "after": "cases/qwen/P3/SportsTrackerTotalDurationForCategoryThisWeek_0/002_after.png"
+    },
+    "record": "cases/qwen/P3/SportsTrackerTotalDurationForCategoryThisWeek_0/002_step.json",
+    "decision_summary": "Answer the user's question with the total duration of running activities in minutes as a single integer: 105."
+  }
+]

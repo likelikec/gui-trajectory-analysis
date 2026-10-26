@@ -1,0 +1,362 @@
+[
+  {
+    "step": 1,
+    "label": "N",
+    "rationale": "Opening Simple Calendar Pro directly advances the task and successfully reaches the calendar.",
+    "action": "{\"name\": \"open\", \"parameters\": {\"text\": \"Simple Calendar Pro\"}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/001_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/001_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/001_step.json",
+    "decision_summary": "Open the Simple Calendar Pro app."
+  },
+  {
+    "step": 2,
+    "label": "N",
+    "rationale": "Selecting October 18 opens a day within the requested Monday October 16 through Sunday October 22 week.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [538, 1474]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/002_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/002_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/002_step.json",
+    "decision_summary": "Click on October 18th to see the full details of the event."
+  },
+  {
+    "step": 3,
+    "label": "N",
+    "rationale": "Advancing from October 18 to October 19 checks another day in the requested week.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1005, 396]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/003_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/003_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/003_step.json",
+    "decision_summary": "Click the right arrow to see the next day's events."
+  },
+  {
+    "step": 4,
+    "label": "N",
+    "rationale": "Advancing from October 19 to October 20 remains within the requested week, despite the mistaken date stated in the reasoning.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1011, 398]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/004_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/004_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/004_step.json",
+    "decision_summary": "Click the right arrow to go to October 20th."
+  },
+  {
+    "step": 5,
+    "label": "N",
+    "rationale": "Advancing from October 20 to October 21 checks another day in the requested week.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1005, 398]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/005_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/005_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/005_step.json",
+    "decision_summary": "Click the right arrow to go to October 21st."
+  },
+  {
+    "step": 6,
+    "label": "N",
+    "rationale": "Advancing to October 22 checks the final day of the requested Monday-to-Sunday week.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1005, 396]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/006_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/006_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/006_step.json",
+    "decision_summary": "Click the right arrow to go to October 22nd."
+  },
+  {
+    "step": 7,
+    "label": "E",
+    "rationale": "The action leaves the requested October 16-22 week for October 23 while October 16 and 17 remain unchecked.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1005, 396]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/007_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/007_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/007_step.json",
+    "decision_summary": "Click the right arrow."
+  },
+  {
+    "step": 8,
+    "label": "E",
+    "rationale": "Advancing from October 23 to October 24 continues inspecting the wrong week.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1005, 396]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/008_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/008_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/008_step.json",
+    "decision_summary": "Click the right arrow to see the events for Tuesday, October 24th."
+  },
+  {
+    "step": 9,
+    "label": "E",
+    "rationale": "Advancing to October 25 gathers events outside the requested October 16-22 interval.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1009, 396]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/009_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/009_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/009_step.json",
+    "decision_summary": "Click the right arrow to see the events for October 25th."
+  },
+  {
+    "step": 10,
+    "label": "E",
+    "rationale": "Advancing to October 26 continues the erroneous October 23-29 week traversal.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1013, 398]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/010_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/010_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/010_step.json",
+    "decision_summary": "Click the right arrow to see the events for October 26th."
+  },
+  {
+    "step": 11,
+    "label": "E",
+    "rationale": "Advancing to October 27 inspects a date outside the requested next week.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1005, 398]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/011_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/011_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/011_step.json",
+    "decision_summary": "Click the right arrow."
+  },
+  {
+    "step": 12,
+    "label": "E",
+    "rationale": "Advancing to October 28 follows an explicitly mistaken belief that the relevant week starts October 30.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1009, 398]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/012_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/012_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/012_step.json",
+    "decision_summary": "Click the right arrow to go to October 28th."
+  },
+  {
+    "step": 13,
+    "label": "E",
+    "rationale": "Advancing to October 29 continues examining dates after the requested week ended.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1013, 396]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/013_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/013_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/013_step.json",
+    "decision_summary": "Click the right arrow."
+  },
+  {
+    "step": 14,
+    "label": "E",
+    "rationale": "Advancing to October 30 targets an incorrect later week instead of the requested October 16-22 week.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1010, 398]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/014_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/014_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/014_step.json",
+    "decision_summary": "Click the right arrow to go to October 30th."
+  },
+  {
+    "step": 15,
+    "label": "E",
+    "rationale": "Advancing to October 31 continues inspection of an irrelevant later week.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1005, 398]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/015_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/015_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/015_step.json",
+    "decision_summary": "Click the right arrow."
+  },
+  {
+    "step": 16,
+    "label": "N",
+    "rationale": "Returning to month view is a reasonable recovery action that enables selecting dates in the correct week.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [97, 211]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/016_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/016_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/016_step.json",
+    "decision_summary": "Click the back arrow to return to the main calendar view."
+  },
+  {
+    "step": 17,
+    "label": "N",
+    "rationale": "Reopening October 18 is redundant but task-relevant and exposes the full event title; redundancy alone is not a concrete error.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [534, 1483]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/017_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/017_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/017_step.json",
+    "decision_summary": "Click on October 18th to see the event details."
+  },
+  {
+    "step": 18,
+    "label": "N",
+    "rationale": "Advancing from October 18 to October 19 checks a date in the requested week, notwithstanding the mistaken reasoning.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1005, 394]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/018_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/018_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/018_step.json",
+    "decision_summary": "Click the right arrow to move to October 19th."
+  },
+  {
+    "step": 19,
+    "label": "N",
+    "rationale": "Advancing to October 20 remains within the requested October 16-22 week.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1005, 398]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/019_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/019_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/019_step.json",
+    "decision_summary": "Click the right arrow to go to October 20th."
+  },
+  {
+    "step": 20,
+    "label": "N",
+    "rationale": "Advancing to October 21 checks another day within the requested week.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1005, 398]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/020_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/020_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/020_step.json",
+    "decision_summary": "Click the right arrow to go to October 21st."
+  },
+  {
+    "step": 21,
+    "label": "N",
+    "rationale": "Advancing to October 22 checks the requested week's final day.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1005, 398]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/021_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/021_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/021_step.json",
+    "decision_summary": "Click the right arrow to go to October 22nd."
+  },
+  {
+    "step": 22,
+    "label": "E",
+    "rationale": "Advancing to October 23 again leaves the requested week based on the incorrect October 23-29 interpretation.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1005, 398]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/022_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/022_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/022_step.json",
+    "decision_summary": "Click the right arrow to see the events for October 23rd."
+  },
+  {
+    "step": 23,
+    "label": "E",
+    "rationale": "Advancing to October 24 continues collecting events from the wrong week.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1005, 396]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/023_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/023_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/023_step.json",
+    "decision_summary": "Click the right arrow to see the events for Tuesday, October 24th."
+  },
+  {
+    "step": 24,
+    "label": "E",
+    "rationale": "Advancing to October 25 examines events outside the requested interval.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1005, 398]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/024_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/024_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/024_step.json",
+    "decision_summary": "click (931, 166)"
+  },
+  {
+    "step": 25,
+    "label": "E",
+    "rationale": "Advancing to October 26 continues an irrelevant later-week traversal, with reasoning also targeting the wrong October 30 week.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1005, 398]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/025_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/025_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/025_step.json",
+    "decision_summary": "Click the right arrow to go to October 26th."
+  },
+  {
+    "step": 26,
+    "label": "E",
+    "rationale": "Advancing to October 27 continues checking the incorrect October 23-29 week.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1005, 398]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/026_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/026_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/026_step.json",
+    "decision_summary": "Click the right arrow to see the events for October 27th."
+  },
+  {
+    "step": 27,
+    "label": "E",
+    "rationale": "Advancing to October 28 inspects another date outside the requested week.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1005, 398]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/027_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/027_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/027_step.json",
+    "decision_summary": "click (931, 166)"
+  },
+  {
+    "step": 28,
+    "label": "E",
+    "rationale": "Advancing to October 29 completes traversal of the wrong October 23-29 week rather than the requested week.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [1005, 398]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/028_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/028_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/028_step.json",
+    "decision_summary": "Click the right arrow to see the events for October 29th."
+  },
+  {
+    "step": 29,
+    "label": "E",
+    "rationale": "Moving back from October 29 to October 28 pursues the explicitly incorrect plan to collect October 23-29 events.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [73, 398]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/029_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/029_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/029_step.json",
+    "decision_summary": "Click the left arrow to go back to October 28th."
+  },
+  {
+    "step": 30,
+    "label": "E",
+    "rationale": "Moving back to October 27 continues backtracking within the wrong week instead of checking October 16 and 17.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [73, 398]}}",
+    "images": {
+      "before": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/030_before.png",
+      "after": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/030_after.png"
+    },
+    "record": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/030_step.json",
+    "decision_summary": "Click the left arrow to go back to October 27th."
+  }
+]

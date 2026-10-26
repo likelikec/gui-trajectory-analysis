@@ -1,0 +1,362 @@
+[
+  {
+    "step": 1,
+    "label": "N",
+    "rationale": "Opening Files is the correct first step for accessing task.html in Downloads.",
+    "action": "{\"action\": \"open_app\", \"text\": \"Files\"}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/001_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/001_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/001_step.json",
+    "decision_summary": "Open the phone’s file manager."
+  },
+  {
+    "step": 2,
+    "label": "N",
+    "rationale": "Selecting the visible task.html file opens the required app chooser.",
+    "action": "{\"action\": \"click\", \"coordinate\": [210, 697]}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/002_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/002_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/002_step.json",
+    "decision_summary": "Tap the `task.html` file tile."
+  },
+  {
+    "step": 3,
+    "label": "E",
+    "rationale": "The tap misses the Just once button and dismisses the Chrome chooser, returning to Files instead of opening task.html.",
+    "action": "{\"action\": \"click\", \"coordinate\": [533, 1255]}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/003_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/003_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/003_step.json",
+    "decision_summary": "Select Chrome and choose “Just once.”"
+  },
+  {
+    "step": 4,
+    "label": "N",
+    "rationale": "Reopening task.html is an appropriate recovery after the chooser was dismissed.",
+    "action": "{\"action\": \"click\", \"coordinate\": [300, 1000]}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/004_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/004_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/004_step.json",
+    "decision_summary": "Tap the `task.html` file tile."
+  },
+  {
+    "step": 5,
+    "label": "N",
+    "rationale": "Selecting Just once correctly launches the file through Chrome.",
+    "action": "{\"action\": \"click\", \"coordinate\": [765, 1785]}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/005_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/005_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/005_step.json",
+    "decision_summary": "Tap “Just once” to open the file in Chrome."
+  },
+  {
+    "step": 6,
+    "label": "N",
+    "rationale": "Tapping Use without an account is the appropriate way to complete Chrome onboarding for this local file.",
+    "action": "{\"action\": \"click\", \"coordinate\": [540, 2085]}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/006_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/006_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/006_step.json",
+    "decision_summary": "Tap “Use without an account.”"
+  },
+  {
+    "step": 7,
+    "label": "N",
+    "rationale": "Retrying the same onboarding control is reasonable after the first tap leaves the welcome screen visible.",
+    "action": "{\"action\": \"click\", \"coordinate\": [540, 2108]}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/007_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/007_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/007_step.json",
+    "decision_summary": "Tap “Use without an account.”"
+  },
+  {
+    "step": 8,
+    "label": "N",
+    "rationale": "Selecting task.html again is the correct recovery after Chrome onboarding returns to Files.",
+    "action": "{\"action\": \"click\", \"coordinate\": [300, 1000]}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/008_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/008_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/008_step.json",
+    "decision_summary": "Tap the `task.html` file tile."
+  },
+  {
+    "step": 9,
+    "label": "N",
+    "rationale": "Choosing Just once opens the requested local file in Chrome.",
+    "action": "{\"action\": \"click\", \"coordinate\": [750, 1785]}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/009_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/009_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/009_step.json",
+    "decision_summary": "Tap “Just once” in the Chrome app chooser."
+  },
+  {
+    "step": 10,
+    "label": "E",
+    "rationale": "The teal square at the top is a non-clickable target-color reference, so tapping it does not select a drawing color.",
+    "action": "{\"action\": \"click\", \"coordinate\": [388, 384]}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/010_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/010_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/010_step.json",
+    "decision_summary": "Select the teal color swatch."
+  },
+  {
+    "step": 11,
+    "label": "N",
+    "rationale": "The tap selects the matching teal button from the clickable Available Colors palette.",
+    "action": "{\"action\": \"click\", \"coordinate\": [499, 1568]}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/011_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/011_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/011_step.json",
+    "decision_summary": "Select the teal swatch in the available color palette."
+  },
+  {
+    "step": 12,
+    "label": "N",
+    "rationale": "The swipe starts and ends inside the canvas and visibly creates a teal stroke.",
+    "action": "{\"action\": \"swipe\", \"coordinate\": [260, 620], \"coordinate2\": [430, 820]}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/012_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/012_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/012_step.json",
+    "decision_summary": "Draw a teal diagonal stroke inside the canvas."
+  },
+  {
+    "step": 13,
+    "label": "E",
+    "rationale": "The tap intended to select magenta lands inside the canvas rather than on any color button.",
+    "action": "{\"action\": \"click\", \"coordinate\": [418, 1037]}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/013_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/013_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/013_step.json",
+    "decision_summary": "Select the magenta swatch from the available colors palette."
+  },
+  {
+    "step": 14,
+    "label": "N",
+    "rationale": "The tap selects the magenta button in the clickable Available Colors palette.",
+    "action": "{\"action\": \"click\", \"coordinate\": [588, 1444]}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/014_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/014_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/014_step.json",
+    "decision_summary": "Select the magenta swatch in the available colors palette."
+  },
+  {
+    "step": 15,
+    "label": "N",
+    "rationale": "Repeating the magenta palette selection is harmless refocusing of the correct color button.",
+    "action": "{\"action\": \"click\", \"coordinate\": [588, 1468]}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/015_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/015_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/015_step.json",
+    "decision_summary": "Tap the magenta swatch in the first row of the available colors palette."
+  },
+  {
+    "step": 16,
+    "label": "N",
+    "rationale": "The additional magenta-button tap is redundant but still targets the correct clickable palette entry.",
+    "action": "{\"action\": \"click\", \"coordinate\": [588, 1460]}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/016_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/016_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/016_step.json",
+    "decision_summary": "Select the magenta swatch."
+  },
+  {
+    "step": 17,
+    "label": "E",
+    "rationale": "The tap lands in Chrome's URL bar rather than on a magenta color control and opens text-entry focus.",
+    "action": "{\"action\": \"click\", \"coordinate\": [384, 270]}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/017_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/017_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/017_step.json",
+    "decision_summary": "Tap the magenta swatch at the top of the page."
+  },
+  {
+    "step": 18,
+    "label": "N",
+    "rationale": "Pressing Back correctly dismisses the accidentally opened URL keyboard.",
+    "action": "{\"action\": \"system_button\", \"button\": \"Back\"}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/018_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/018_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/018_step.json",
+    "decision_summary": "Dismiss the on-screen keyboard."
+  },
+  {
+    "step": 19,
+    "label": "E",
+    "rationale": "The tap targets the non-clickable magenta reference square at the top, so it cannot change the drawing color.",
+    "action": "{\"action\": \"click\", \"coordinate\": [540, 382]}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/019_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/019_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/019_step.json",
+    "decision_summary": "Select the magenta swatch."
+  },
+  {
+    "step": 20,
+    "label": "E",
+    "rationale": "The swipe begins above the canvas boundary and produces no second colored stroke.",
+    "action": "{\"action\": \"swipe\", \"coordinate\": [400, 450], \"coordinate2\": [520, 570]}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/020_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/020_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/020_step.json",
+    "decision_summary": "Draw a magenta diagonal stroke inside the canvas."
+  },
+  {
+    "step": 21,
+    "label": "E",
+    "rationale": "The tap again uses the non-clickable top magenta reference instead of the matching palette button.",
+    "action": "{\"action\": \"click\", \"coordinate\": [540, 382]}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/021_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/021_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/021_step.json",
+    "decision_summary": "Select the magenta swatch."
+  },
+  {
+    "step": 22,
+    "label": "E",
+    "rationale": "The tap again lands in the URL bar and opens the keyboard rather than selecting a drawing color.",
+    "action": "{\"action\": \"click\", \"coordinate\": [384, 270]}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/022_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/022_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/022_step.json",
+    "decision_summary": "Tap the center of the magenta swatch."
+  },
+  {
+    "step": 23,
+    "label": "N",
+    "rationale": "Pressing Back is the appropriate recovery to dismiss URL focus and restore the drawing page.",
+    "action": "{\"action\": \"system_button\", \"button\": \"Back\"}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/023_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/023_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/023_step.json",
+    "decision_summary": "Dismiss the on-screen keyboard."
+  },
+  {
+    "step": 24,
+    "label": "E",
+    "rationale": "The tap again targets the non-clickable top magenta reference and has no drawing-state effect.",
+    "action": "{\"action\": \"click\", \"coordinate\": [540, 380]}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/024_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/024_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/024_step.json",
+    "decision_summary": "Tap the magenta swatch."
+  },
+  {
+    "step": 25,
+    "label": "E",
+    "rationale": "Repeating the same non-clickable reference tap does not select a palette color or advance the drawing.",
+    "action": "{\"action\": \"click\", \"coordinate\": [540, 381]}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/025_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/025_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/025_step.json",
+    "decision_summary": "Select the magenta swatch."
+  },
+  {
+    "step": 26,
+    "label": "E",
+    "rationale": "The tap again activates Chrome's URL bar instead of a task control.",
+    "action": "{\"action\": \"click\", \"coordinate\": [384, 270]}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/026_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/026_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/026_step.json",
+    "decision_summary": "Tap the center of the magenta swatch."
+  },
+  {
+    "step": 27,
+    "label": "N",
+    "rationale": "Pressing Back correctly dismisses the keyboard created by the preceding URL-bar tap.",
+    "action": "{\"action\": \"system_button\", \"button\": \"Back\"}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/027_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/027_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/027_step.json",
+    "decision_summary": "Dismiss the on-screen keyboard."
+  },
+  {
+    "step": 28,
+    "label": "E",
+    "rationale": "The tap returns to the non-clickable top magenta reference rather than selecting a required remaining color.",
+    "action": "{\"action\": \"click\", \"coordinate\": [540, 380]}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/028_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/028_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/028_step.json",
+    "decision_summary": "Tap the magenta swatch."
+  },
+  {
+    "step": 29,
+    "label": "E",
+    "rationale": "The tap activates the URL bar yet again instead of interacting with the drawing controls.",
+    "action": "{\"action\": \"click\", \"coordinate\": [384, 270]}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/029_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/029_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/029_step.json",
+    "decision_summary": "Select the magenta swatch."
+  },
+  {
+    "step": 30,
+    "label": "N",
+    "rationale": "Pressing Back is an appropriate recovery from the accidental URL focus.",
+    "action": "{\"action\": \"system_button\", \"button\": \"Back\"}",
+    "images": {
+      "before": "cases/gpt/P3/BrowserDraw_0/030_before.png",
+      "after": "cases/gpt/P3/BrowserDraw_0/030_after.png"
+    },
+    "record": "cases/gpt/P3/BrowserDraw_0/030_step.json",
+    "decision_summary": "Dismiss the on-screen keyboard."
+  }
+]

@@ -1,0 +1,362 @@
+[
+  {
+    "step": 1,
+    "label": "N",
+    "rationale": "Opening Audio Recorder is the task-appropriate application choice.",
+    "action": "{\"name\": \"open\", \"parameters\": {\"text\": \"Audio Recorder\"}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/001_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/001_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/001_step.json",
+    "decision_summary": "open"
+  },
+  {
+    "step": 2,
+    "label": "N",
+    "rationale": "Continuing from the recorder welcome screen is required to begin setup.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [540, 2152]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/002_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/002_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/002_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 3,
+    "label": "N",
+    "rationale": "Applying the visible recorder format setup leads to the recording interface.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [808, 2262]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/003_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/003_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/003_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 4,
+    "label": "N",
+    "rationale": "The click leaves the recorder ready at 00:00; it does not select an incorrect task target.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [540, 2185]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/004_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/004_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/004_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 5,
+    "label": "N",
+    "rationale": "Starting recording is required to create the requested audio clip.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [744, 2183]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/005_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/005_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/005_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 6,
+    "label": "N",
+    "rationale": "Stopping the recording opens the naming dialog for saving the clip.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [540, 750]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/006_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/006_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/006_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 7,
+    "label": "N",
+    "rationale": "Clicking in the name field is a preparatory interaction and does not itself create a wrong filename.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [500, 744]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/007_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/007_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/007_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 8,
+    "label": "N",
+    "rationale": "This repeated name-field click provides no concrete task-relevant error.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [400, 745]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/008_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/008_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/008_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 9,
+    "label": "N",
+    "rationale": "This repeated name-field click provides no concrete task-relevant error.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [260, 746]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/009_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/009_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/009_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 10,
+    "label": "N",
+    "rationale": "This repeated name-field click provides no concrete task-relevant error.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [351, 744]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/010_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/010_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/010_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 11,
+    "label": "N",
+    "rationale": "This repeated name-field click provides no concrete task-relevant error.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [263, 745]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/011_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/011_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/011_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 12,
+    "label": "N",
+    "rationale": "This repeated name-field click provides no concrete task-relevant error.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [400, 744]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/012_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/012_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/012_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 13,
+    "label": "N",
+    "rationale": "This repeated name-field click provides no concrete task-relevant error.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [230, 746]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/013_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/013_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/013_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 14,
+    "label": "N",
+    "rationale": "Clearing the default Record-1 value is the correct preparation for the requested filename.",
+    "action": "{\"name\": \"clear_text\", \"parameters\": {}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/014_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/014_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/014_step.json",
+    "decision_summary": "clear_text"
+  },
+  {
+    "step": 15,
+    "label": "N",
+    "rationale": "The click remains within the naming dialog and does not establish an incorrect value.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [500, 746]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/015_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/015_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/015_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 16,
+    "label": "N",
+    "rationale": "The click remains within the naming dialog and does not establish an incorrect value.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [540, 780]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/016_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/016_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/016_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 17,
+    "label": "N",
+    "rationale": "The click remains within the naming dialog and does not establish an incorrect value.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [400, 750]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/017_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/017_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/017_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 18,
+    "label": "N",
+    "rationale": "The click remains within the naming dialog and does not establish an incorrect value.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [540, 782]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/018_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/018_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/018_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 19,
+    "label": "N",
+    "rationale": "The click remains within the naming dialog and does not establish an incorrect value.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [500, 748]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/019_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/019_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/019_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 20,
+    "label": "N",
+    "rationale": "The click remains within the naming dialog and does not establish an incorrect value.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [540, 740]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/020_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/020_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/020_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 21,
+    "label": "N",
+    "rationale": "The click remains within the naming dialog and does not establish an incorrect value.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [540, 748]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/021_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/021_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/021_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 22,
+    "label": "N",
+    "rationale": "The click remains within the naming dialog and does not establish an incorrect value.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [540, 782]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/022_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/022_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/022_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 23,
+    "label": "N",
+    "rationale": "The click remains within the naming dialog and does not establish an incorrect value.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [400, 747]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/023_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/023_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/023_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 24,
+    "label": "N",
+    "rationale": "The click remains within the naming dialog and does not establish an incorrect value.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [540, 750]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/024_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/024_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/024_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 25,
+    "label": "N",
+    "rationale": "The click remains within the naming dialog and does not establish an incorrect value.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [540, 750]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/025_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/025_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/025_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 26,
+    "label": "N",
+    "rationale": "Typing presentation_fGwr.m4a supplies exactly the requested filename.",
+    "action": "{\"name\": \"type\", \"parameters\": {\"text\": \"presentation_fGwr.m4a\"}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/026_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/026_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/026_step.json",
+    "decision_summary": "type"
+  },
+  {
+    "step": 27,
+    "label": "N",
+    "rationale": "Saving commits the recorded clip under the requested presentation_fGwr.m4a name.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [820, 1004]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/027_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/027_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/027_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 28,
+    "label": "E",
+    "rationale": "After the requested clip has already been saved, this action starts a second recording, introducing an unnecessary new recording rather than continuing the completed task.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [540, 2201]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/028_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/028_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/028_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 29,
+    "label": "N",
+    "rationale": "Stopping the extra recording and opening its naming dialog is a recovery action, not a new concrete error.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [742, 2190]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/029_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/029_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/029_step.json",
+    "decision_summary": "click"
+  },
+  {
+    "step": 30,
+    "label": "N",
+    "rationale": "Clicking in the second naming dialog is a preparatory recovery interaction.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [395, 744]}}",
+    "images": {
+      "before": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/030_before.png",
+      "after": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/030_after.png"
+    },
+    "record": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/030_step.json",
+    "decision_summary": "click"
+  }
+]

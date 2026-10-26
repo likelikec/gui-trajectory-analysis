@@ -1,0 +1,62 @@
+{
+  "step_idx": 0,
+  "action": {
+    "name": "open",
+    "parameters": {
+      "text": "Simple Calendar Pro"
+    }
+  },
+  "action_s": "{\"name\": \"mobile_use\", \"arguments\": {\"action\": \"open\", \"text\": \"Simple Calendar Pro\"}}",
+  "action_desc": null,
+  "summary": "Open the Simple Calendar Pro app.",
+  "answer": null,
+  "plan": null,
+  "sub_goal": null,
+  "progress": null,
+  "reflection_outcome": null,
+  "reflection_error": null,
+  "action_execution": {
+    "sequence": 193,
+    "started_at": "2026-07-24T03:06:50.573321+00:00",
+    "status": "completed",
+    "executor": "androidworld",
+    "command_kind": "open_app",
+    "requested_action": {
+      "name": "open",
+      "parameters": {
+        "text": "Simple Calendar Pro"
+      },
+      "repr": "open(text=Simple Calendar Pro)"
+    },
+    "actual_coordinates": null,
+    "command": [
+      "benchmark_env.execute_action",
+      {
+        "action_type": "open_app",
+        "index": null,
+        "x": null,
+        "y": null,
+        "text": null,
+        "direction": null,
+        "goal_status": null,
+        "app_name": "Simple Calendar Pro",
+        "keycode": null
+      }
+    ],
+    "command_text": "benchmark_env.execute_action({\"action_type\": \"open_app\", \"app_name\": \"Simple Calendar Pro\", \"direction\": null, \"goal_status\": null, \"index\": null, \"keycode\": null, \"text\": null, \"x\": null, \"y\": null})",
+    "note": "Executed through AndroidWorld environment.",
+    "androidworld_action": {
+      "action_type": "open_app",
+      "index": null,
+      "x": null,
+      "y": null,
+      "text": null,
+      "direction": null,
+      "goal_status": null,
+      "app_name": "Simple Calendar Pro",
+      "keycode": null
+    },
+    "finished_at": "2026-07-24T03:06:56.057296+00:00"
+  },
+  "step_duration": 65.162167167
+}

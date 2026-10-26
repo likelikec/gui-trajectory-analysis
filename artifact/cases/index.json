@@ -1,0 +1,146 @@
+[
+  {
+    "execution_id": "gemini/P1/MarkorChangeNoteContent_0",
+    "model": "gemini",
+    "implementation": "P1",
+    "task_id": "MarkorChangeNoteContent_0",
+    "steps": 30,
+    "paper_named": true,
+    "timeline": "cases/gemini/P1/MarkorChangeNoteContent_0/timeline.json"
+  },
+  {
+    "execution_id": "gemini/P1/SimpleCalendarEventsInNextWeek_0",
+    "model": "gemini",
+    "implementation": "P1",
+    "task_id": "SimpleCalendarEventsInNextWeek_0",
+    "steps": 30,
+    "paper_named": true,
+    "timeline": "cases/gemini/P1/SimpleCalendarEventsInNextWeek_0/timeline.json"
+  },
+  {
+    "execution_id": "gemini/P2/AudioRecorderRecordAudioWithFileName_0",
+    "model": "gemini",
+    "implementation": "P2",
+    "task_id": "AudioRecorderRecordAudioWithFileName_0",
+    "steps": 13,
+    "paper_named": false,
+    "timeline": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/timeline.json"
+  },
+  {
+    "execution_id": "gemini/P3/MarkorChangeNoteContent_0",
+    "model": "gemini",
+    "implementation": "P3",
+    "task_id": "MarkorChangeNoteContent_0",
+    "steps": 30,
+    "paper_named": true,
+    "timeline": "cases/gemini/P3/MarkorChangeNoteContent_0/timeline.json"
+  },
+  {
+    "execution_id": "gemini/P4/MarkorChangeNoteContent_0",
+    "model": "gemini",
+    "implementation": "P4",
+    "task_id": "MarkorChangeNoteContent_0",
+    "steps": 20,
+    "paper_named": true,
+    "timeline": "cases/gemini/P4/MarkorChangeNoteContent_0/timeline.json"
+  },
+  {
+    "execution_id": "gemini/P4/MarkorDeleteNewestNote_0",
+    "model": "gemini",
+    "implementation": "P4",
+    "task_id": "MarkorDeleteNewestNote_0",
+    "steps": 8,
+    "paper_named": true,
+    "timeline": "cases/gemini/P4/MarkorDeleteNewestNote_0/timeline.json"
+  },
+  {
+    "execution_id": "gemini/P4/RetroCreatePlaylist_0",
+    "model": "gemini",
+    "implementation": "P4",
+    "task_id": "RetroCreatePlaylist_0",
+    "steps": 30,
+    "paper_named": true,
+    "timeline": "cases/gemini/P4/RetroCreatePlaylist_0/timeline.json"
+  },
+  {
+    "execution_id": "gpt/P1/AudioRecorderRecordAudioWithFileName_0",
+    "model": "gpt",
+    "implementation": "P1",
+    "task_id": "AudioRecorderRecordAudioWithFileName_0",
+    "steps": 11,
+    "paper_named": false,
+    "timeline": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/timeline.json"
+  },
+  {
+    "execution_id": "gpt/P2/BrowserDraw_0",
+    "model": "gpt",
+    "implementation": "P2",
+    "task_id": "BrowserDraw_0",
+    "steps": 23,
+    "paper_named": true,
+    "timeline": "cases/gpt/P2/BrowserDraw_0/timeline.json"
+  },
+  {
+    "execution_id": "gpt/P3/BrowserDraw_0",
+    "model": "gpt",
+    "implementation": "P3",
+    "task_id": "BrowserDraw_0",
+    "steps": 30,
+    "paper_named": true,
+    "timeline": "cases/gpt/P3/BrowserDraw_0/timeline.json"
+  },
+  {
+    "execution_id": "gpt/P3/RecipeAddMultipleRecipesFromImage_0",
+    "model": "gpt",
+    "implementation": "P3",
+    "task_id": "RecipeAddMultipleRecipesFromImage_0",
+    "steps": 30,
+    "paper_named": true,
+    "timeline": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/timeline.json"
+  },
+  {
+    "execution_id": "gpt/P4/AudioRecorderRecordAudioWithFileName_0",
+    "model": "gpt",
+    "implementation": "P4",
+    "task_id": "AudioRecorderRecordAudioWithFileName_0",
+    "steps": 30,
+    "paper_named": false,
+    "timeline": "cases/gpt/P4/AudioRecorderRecordAudioWithFileName_0/timeline.json"
+  },
+  {
+    "execution_id": "qwen/P1/AudioRecorderRecordAudioWithFileName_0",
+    "model": "qwen",
+    "implementation": "P1",
+    "task_id": "AudioRecorderRecordAudioWithFileName_0",
+    "steps": 10,
+    "paper_named": false,
+    "timeline": "cases/qwen/P1/AudioRecorderRecordAudioWithFileName_0/timeline.json"
+  },
+  {
+    "execution_id": "qwen/P2/AudioRecorderRecordAudioWithFileName_0",
+    "model": "qwen",
+    "implementation": "P2",
+    "task_id": "AudioRecorderRecordAudioWithFileName_0",
+    "steps": 4,
+    "paper_named": false,
+    "timeline": "cases/qwen/P2/AudioRecorderRecordAudioWithFileName_0/timeline.json"
+  },
+  {
+    "execution_id": "qwen/P3/SportsTrackerTotalDurationForCategoryThisWeek_0",
+    "model": "qwen",
+    "implementation": "P3",
+    "task_id": "SportsTrackerTotalDurationForCategoryThisWeek_0",
+    "steps": 2,
+    "paper_named": true,
+    "timeline": "cases/qwen/P3/SportsTrackerTotalDurationForCategoryThisWeek_0/timeline.json"
+  },
+  {
+    "execution_id": "qwen/P4/AudioRecorderRecordAudioWithFileName_0",
+    "model": "qwen",
+    "implementation": "P4",
+    "task_id": "AudioRecorderRecordAudioWithFileName_0",
+    "steps": 25,
+    "paper_named": false,
+    "timeline": "cases/qwen/P4/AudioRecorderRecordAudioWithFileName_0/timeline.json"
+  }
+]

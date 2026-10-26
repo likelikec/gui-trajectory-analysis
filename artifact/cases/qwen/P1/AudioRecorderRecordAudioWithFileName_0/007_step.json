@@ -1,0 +1,22 @@
+{
+  "step_idx": 6,
+  "action": {
+    "name": "click",
+    "parameters": {
+      "coordinate": [
+        742,
+        2181
+      ]
+    }
+  },
+  "action_s": "{\"name\": \"mobile_use\", \"arguments\": {\"action\": \"click\", \"coordinate\": [686, 908]}}",
+  "action_desc": null,
+  "summary": "\"Tap the square button at the bottom right to stop the recording.\"",
+  "answer": null,
+  "plan": null,
+  "sub_goal": null,
+  "progress": null,
+  "reflection_outcome": null,
+  "reflection_error": null,
+  "step_duration": null
+}

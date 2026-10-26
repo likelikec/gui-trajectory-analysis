@@ -1,0 +1,62 @@
+{
+  "step_idx": 0,
+  "action": {
+    "name": "open",
+    "parameters": {
+      "text": "Markor"
+    }
+  },
+  "action_s": "{\"name\": \"mobile_use\", \"arguments\": {\"action\": \"open\", \"text\": \"Markor\"}}",
+  "action_desc": null,
+  "summary": "Open the Markor app.",
+  "answer": null,
+  "plan": null,
+  "sub_goal": null,
+  "progress": null,
+  "reflection_outcome": null,
+  "reflection_error": null,
+  "action_execution": {
+    "sequence": 107,
+    "started_at": "2026-07-21T08:50:48.021912+00:00",
+    "status": "completed",
+    "executor": "androidworld",
+    "command_kind": "open_app",
+    "requested_action": {
+      "name": "open",
+      "parameters": {
+        "text": "Markor"
+      },
+      "repr": "open(text=Markor)"
+    },
+    "actual_coordinates": null,
+    "command": [
+      "benchmark_env.execute_action",
+      {
+        "action_type": "open_app",
+        "index": null,
+        "x": null,
+        "y": null,
+        "text": null,
+        "direction": null,
+        "goal_status": null,
+        "app_name": "Markor",
+        "keycode": null
+      }
+    ],
+    "command_text": "benchmark_env.execute_action({\"action_type\": \"open_app\", \"app_name\": \"Markor\", \"direction\": null, \"goal_status\": null, \"index\": null, \"keycode\": null, \"text\": null, \"x\": null, \"y\": null})",
+    "note": "Executed through AndroidWorld environment.",
+    "androidworld_action": {
+      "action_type": "open_app",
+      "index": null,
+      "x": null,
+      "y": null,
+      "text": null,
+      "direction": null,
+      "goal_status": null,
+      "app_name": "Markor",
+      "keycode": null
+    },
+    "finished_at": "2026-07-21T08:50:52.727101+00:00"
+  },
+  "step_duration": 47.97993612500022
+}

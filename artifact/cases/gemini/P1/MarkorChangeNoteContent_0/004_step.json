@@ -1,0 +1,74 @@
+{
+  "step_idx": 3,
+  "action": {
+    "name": "clear_text",
+    "parameters": {}
+  },
+  "action_s": "{\"name\": \"mobile_use\", \"arguments\": {\"action\": \"clear_text\"}}",
+  "action_desc": null,
+  "summary": "Clear the text in the input box.",
+  "answer": null,
+  "plan": null,
+  "sub_goal": null,
+  "progress": null,
+  "reflection_outcome": null,
+  "reflection_error": null,
+  "action_execution": {
+    "sequence": 110,
+    "started_at": "2026-07-21T08:51:17.043189+00:00",
+    "status": "completed",
+    "executor": "adb",
+    "command_kind": "clear_text",
+    "requested_action": {
+      "name": "clear_text",
+      "parameters": {},
+      "repr": "clear_text()"
+    },
+    "actual_coordinates": null,
+    "command": [
+      "/opt/homebrew/bin/adb",
+      "-H",
+      "127.0.0.1",
+      "-P",
+      "5037",
+      "-s",
+      "emulator-5554",
+      "shell",
+      "input",
+      "keyevent",
+      "KEYCODE_MOVE_END"
+    ],
+    "command_text": "/opt/homebrew/bin/adb -H 127.0.0.1 -P 5037 -s emulator-5554 shell input keyevent KEYCODE_MOVE_END",
+    "note": "Runs KEYCODE_MOVE_END once and KEYCODE_DEL 40 times.",
+    "commands": [
+      [
+        "/opt/homebrew/bin/adb",
+        "-H",
+        "127.0.0.1",
+        "-P",
+        "5037",
+        "-s",
+        "emulator-5554",
+        "shell",
+        "input",
+        "keyevent",
+        "KEYCODE_MOVE_END"
+      ],
+      [
+        "/opt/homebrew/bin/adb",
+        "-H",
+        "127.0.0.1",
+        "-P",
+        "5037",
+        "-s",
+        "emulator-5554",
+        "shell",
+        "input",
+        "keyevent",
+        "KEYCODE_DEL"
+      ]
+    ],
+    "finished_at": "2026-07-21T08:51:20.757656+00:00"
+  },
+  "step_duration": 11.386844374999782
+}

@@ -1,0 +1,22 @@
+{
+  "step_idx": 7,
+  "action": {
+    "name": "clear_text",
+    "parameters": {
+      "coordinate": [
+        539,
+        704
+      ]
+    }
+  },
+  "action_s": "{\"name\": \"mobile_use\", \"arguments\": {\"action\": \"clear_text\", \"coordinate\": [499, 293]}}",
+  "action_desc": null,
+  "summary": "\"Clear the existing text and type \\\"presentation_fGwr.m4a\\\".\"",
+  "answer": null,
+  "plan": null,
+  "sub_goal": null,
+  "progress": null,
+  "reflection_outcome": null,
+  "reflection_error": null,
+  "step_duration": null
+}

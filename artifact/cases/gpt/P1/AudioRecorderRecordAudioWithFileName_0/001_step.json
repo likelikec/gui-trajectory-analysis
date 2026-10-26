@@ -1,0 +1,62 @@
+{
+  "step_idx": 0,
+  "action": {
+    "name": "open",
+    "parameters": {
+      "text": "Audio Recorder"
+    }
+  },
+  "action_s": "{\"name\":\"mobile_use\",\"arguments\":{\"action\":\"open\",\"text\":\"Audio Recorder\"}}",
+  "action_desc": null,
+  "summary": "Open Audio Recorder.",
+  "answer": null,
+  "plan": null,
+  "sub_goal": null,
+  "progress": null,
+  "reflection_outcome": null,
+  "reflection_error": null,
+  "action_execution": {
+    "sequence": 1,
+    "started_at": "2026-08-16T17:22:46.093032+00:00",
+    "status": "completed",
+    "executor": "androidworld",
+    "command_kind": "open_app",
+    "requested_action": {
+      "name": "open",
+      "parameters": {
+        "text": "Audio Recorder"
+      },
+      "repr": "open(text=Audio Recorder)"
+    },
+    "actual_coordinates": null,
+    "command": [
+      "benchmark_env.execute_action",
+      {
+        "action_type": "open_app",
+        "index": null,
+        "x": null,
+        "y": null,
+        "text": null,
+        "direction": null,
+        "goal_status": null,
+        "app_name": "Audio Recorder",
+        "keycode": null
+      }
+    ],
+    "command_text": "benchmark_env.execute_action({\"action_type\": \"open_app\", \"app_name\": \"Audio Recorder\", \"direction\": null, \"goal_status\": null, \"index\": null, \"keycode\": null, \"text\": null, \"x\": null, \"y\": null})",
+    "note": "Executed through AndroidWorld environment.",
+    "androidworld_action": {
+      "action_type": "open_app",
+      "index": null,
+      "x": null,
+      "y": null,
+      "text": null,
+      "direction": null,
+      "goal_status": null,
+      "app_name": "Audio Recorder",
+      "keycode": null
+    },
+    "finished_at": "2026-08-16T17:22:54.473015+00:00"
+  },
+  "step_duration": 18.279651171003934
+}

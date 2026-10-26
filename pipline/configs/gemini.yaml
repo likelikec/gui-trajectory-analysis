@@ -1,0 +1,56 @@
+model:
+  provider: openrouter
+  model_name: google/gemini-3-flash-preview
+  api_key: ""
+  base_url: "https://openrouter.ai/api/v1"
+  max_tokens: 2048
+  temperature: 0
+  max_retry: 3
+  retry_waiting_seconds: 8
+  max_pixels: 12845056
+  enable_thinking: false
+  adapter_name: gemini
+  coordinate_mode: normalized_1000
+  coordinate_base: 1000
+
+observation:
+  screenshot: true
+  include_view_hierarchy: false
+  history_format: mobile_use_text_history
+  include_device_time: false
+  include_a11y_tree: false
+  num_histories: 4
+  num_latest_screenshots: 2
+
+control:
+  max_steps: 30
+  max_action_retry: 3
+  task_random_seed: 30
+  n_task_combinations: 1
+  fixed_task_seed: true
+  enable_log: true
+  include_tips: true
+  reflect_on_demand: true
+
+executor:
+  wait_after_action_seconds: 2.0
+  request_interval: 3.0
+  # The 30-step cap is the task budget. Provider request timeouts and bounded
+  # retries remain active independently of this task-level wall-clock cutoff.
+  timeout_seconds: null
+
+benchmark:
+  androidworld_suite_family: android_world
+  androidworld_a11y_method: a11y_forwarder_app
+  androidworld_device_ready_timeout_seconds: 240
+  androidworld_launch_emulator: false
+  androidworld_wipe_data_on_launch: false
+  androidworld_p1_avd_name: p1
+  androidworld_p2_avd_name: p2
+  androidworld_p3_avd_name: P3
+  androidworld_p4_avd_name: P4
+  androidworld_freeze_datetime: true
+  androidworld_p3_coor_type: qwen-vl
+  emulator_gpu: host
+  emulator_show_window: true
+  p3_timeout_seconds: null

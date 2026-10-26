@@ -1,0 +1,52 @@
+name: answer_agent
+
+system_prompt: |-
+  Return the requested answer from the completed phone interaction.
+  Return exactly one JSON object and no other text:
+  {{"action":"answer","text":"answer"}}
+  Do not use Markdown, XML, <thinking>, or <tool_call> tags.
+
+task_prompt: |-
+  User instruction: {task_description}
+
+device_time_prompt: |-
+  Current time: {device_time}
+
+plan_prompt: |-
+  Overall plan: {plan}
+
+subgoal_prompt: |-
+  Current subgoal: {subgoal}
+
+history_prompt: |-
+  Recent operations:
+  {history}
+
+progress_prompt: |-
+  Progress:
+  {progress}
+
+knowledge_prompt: |-
+  Potentially relevant knowledge:
+  {knowledge}
+
+memory_prompt: |-
+  Notes:
+  {memory}
+
+reflection_prompt: |-
+  Previous feedback: {reflection_error}
+
+trajectory_reflection_prompt: |-
+  Reflection: {long_reflection_error}
+
+global_reflection_prompt: |-
+  Evaluator feedback: {global_reflection_error}
+
+observation_prompt: |-
+  Current phone screenshot ({resized_width}x{resized_height}):
+  {image_placeholder}
+
+response_prompt: |-
+  User instruction: {goal}
+  Return only {{"action":"answer","text":"answer"}} with the exact requested format.

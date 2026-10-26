@@ -1,0 +1,133 @@
+[
+  {
+    "step": 1,
+    "label": "N",
+    "rationale": "Opening Audio Recorder from the home screen correctly launched the requested app.",
+    "action": "{\"name\": \"open\", \"parameters\": {\"text\": \"Audio Recorder\"}}",
+    "images": {
+      "before": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/001_before.png",
+      "after": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/001_after.png"
+    },
+    "record": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/001_step.json",
+    "decision_summary": "Open Audio Recorder."
+  },
+  {
+    "step": 2,
+    "label": "N",
+    "rationale": "Tapping Get started advanced from the welcome screen to the recorder setup screen.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [538, 2138]}}",
+    "images": {
+      "before": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/002_before.png",
+      "after": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/002_after.png"
+    },
+    "record": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/002_step.json",
+    "decision_summary": "Tap “Get started.”"
+  },
+  {
+    "step": 3,
+    "label": "N",
+    "rationale": "Tapping the naming setting opened its available naming-format choices, a reasonable exploration before recording.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [494, 503]}}",
+    "images": {
+      "before": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/003_before.png",
+      "after": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/003_after.png"
+    },
+    "record": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/003_step.json",
+    "decision_summary": ""
+  },
+  {
+    "step": 4,
+    "label": "N",
+    "rationale": "The attempted Apply tap merely dismissed the open naming menu; it caused no harmful setting change and Apply remained available for retry.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [806, 2248]}}",
+    "images": {
+      "before": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/004_before.png",
+      "after": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/004_after.png"
+    },
+    "record": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/004_step.json",
+    "decision_summary": "Tap the yellow “Apply” button."
+  },
+  {
+    "step": 5,
+    "label": "N",
+    "rationale": "Tapping Apply with the menu closed advanced to the idle recording interface with M4a selected.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [808, 2240]}}",
+    "images": {
+      "before": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/005_before.png",
+      "after": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/005_after.png"
+    },
+    "record": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/005_step.json",
+    "decision_summary": "Tap “Apply.”"
+  },
+  {
+    "step": 6,
+    "label": "N",
+    "rationale": "Tapping the central record control started an active recording, confirmed by the timer and Recording status.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [540, 2188]}}",
+    "images": {
+      "before": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/006_before.png",
+      "after": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/006_after.png"
+    },
+    "record": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/006_step.json",
+    "decision_summary": ""
+  },
+  {
+    "step": 7,
+    "label": "N",
+    "rationale": "Tapping the square stop control ended the active recording and opened the New name save dialog.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [742, 2185]}}",
+    "images": {
+      "before": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/007_before.png",
+      "after": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/007_after.png"
+    },
+    "record": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/007_step.json",
+    "decision_summary": ""
+  },
+  {
+    "step": 8,
+    "label": "N",
+    "rationale": "Clearing the default Record-1 value correctly prepared the filename field for the requested name.",
+    "action": "{\"name\": \"clear_text\", \"parameters\": {}}",
+    "images": {
+      "before": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/008_before.png",
+      "after": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/008_after.png"
+    },
+    "record": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/008_step.json",
+    "decision_summary": ""
+  },
+  {
+    "step": 9,
+    "label": "N",
+    "rationale": "Typing presentation_fGwr.m4a entered the exact requested filename in the save dialog.",
+    "action": "{\"name\": \"type\", \"parameters\": {\"text\": \"presentation_fGwr.m4a\"}}",
+    "images": {
+      "before": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/009_before.png",
+      "after": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/009_after.png"
+    },
+    "record": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/009_step.json",
+    "decision_summary": ""
+  },
+  {
+    "step": 10,
+    "label": "N",
+    "rationale": "Tapping Save closed the dialog and the recording screen displayed presentation_fGwr.m4a as the saved clip name.",
+    "action": "{\"name\": \"click\", \"parameters\": {\"coordinate\": [820, 1000]}}",
+    "images": {
+      "before": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/010_before.png",
+      "after": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/010_after.png"
+    },
+    "record": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/010_step.json",
+    "decision_summary": "Tap the yellow “Save” button."
+  },
+  {
+    "step": 11,
+    "label": "N",
+    "rationale": "The terminal recorder screen shows presentation_fGwr.m4a with a31-second saved clip after the rename/save dialog, supporting completion.",
+    "action": "{\"name\": \"terminate\", \"parameters\": {\"status\": \"success\"}}",
+    "images": {
+      "before": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/011_before.png"
+    },
+    "record": "cases/gpt/P1/AudioRecorderRecordAudioWithFileName_0/011_step.json",
+    "decision_summary": "Terminate successfully."
+  }
+]

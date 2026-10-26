@@ -1,0 +1,87 @@
+model:
+  provider: silra
+  model_name: qwen3-vl-235b-a22b-instruct
+  api_key: ""
+  base_url: "https://api.silra.cn/v1"
+  max_tokens: 2048
+  temperature: 0
+  max_retry: 10
+  retry_waiting_seconds: 8
+  max_pixels: 12845056
+  enable_thinking: false
+
+mode_models:
+  p1:
+    model_name: qwen3-vl-235b-a22b-instruct
+  p2:
+    model_name: qwen3-vl-235b-a22b-instruct
+  p3_decision:
+    model_name: qwen3-vl-235b-a22b-instruct
+  p3_planning:
+    model_name: qwen3-vl-235b-a22b-instruct
+  p3_caption:
+    model_name: qwen3-vl-235b-a22b-instruct
+  p4:
+    model_name: qwen3-vl-235b-a22b-instruct
+
+observation:
+  screenshot: true
+  include_view_hierarchy: false
+  history_format: mobile_use_text_history
+  include_device_time: false
+  include_a11y_tree: false
+  num_histories: 4
+  num_latest_screenshots: 2
+
+action:
+  action_space:
+    - open
+    - click
+    - long_press
+    - type
+    - key
+    - swipe
+    - press_home
+    - press_back
+    - wait
+    - answer
+    - system_button
+    - clear_text
+    - take_note
+    - terminate
+
+executor:
+  wait_after_action_seconds: 2.0
+  request_interval: 3.0
+  timeout_seconds: 2400
+
+control:
+  max_steps: 30
+  max_action_retry: 3
+  task_random_seed: 30
+  n_task_combinations: 1
+  fixed_task_seed: true
+  enable_log: true
+  include_tips: true
+  reflect_on_demand: true
+
+benchmark:
+  androidworld_suite_family: android_world
+  androidworld_a11y_method: uiautomator
+  androidworld_device_ready_timeout_seconds: 900
+  androidworld_launch_emulator: false
+  androidworld_wipe_data_on_launch: false
+  androidworld_freeze_datetime: true
+  androidworld_p3_coor_type: qwen-vl
+  androidworld_appagent_avd_name: p1
+  androidworld_p1_avd_name: p1
+  androidworld_p2_avd_name: p2
+  androidworld_p3_avd_name: P3
+  androidworld_p4_avd_name: P4
+  emulator_gpu: host
+  emulator_memory_mb: 4096
+  emulator_show_window: true
+  p3_timeout_seconds: 2400
+  androidlab_max_rounds: 30
+  androidlab_parallel: 1
+  androidlab_boot_stabilization_seconds: 15.0

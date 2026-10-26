@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mobile-use"
+version = "0.3.0"
+description = "Mobile Use​: Automate your mobile with AI - Any app, any task."
+authors = [
+    {name = "zhoujiamu"},
+    {name = "moxiaoyun"},
+    {name = "lining"},
+    {name = "pengqiuying"},
+    {name = "quxiangmou"},
+]
+license = {text = "MIT License"}
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "adbutils>=2.8.0,<3.0.0",
+  "colorama>=0.4.6",
+  "gradio",
+  "jsonlines",
+  "matplotlib",
+  "numpy",
+  "openai",
+  "opencv-python",
+  "pandas",
+  "pyregister==0.0.1",
+  "python-dotenv>=1.0.1,<2.0.0",
+  "scikit-image",
+  "setuptools",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest >=8.1.1,<9"
+]

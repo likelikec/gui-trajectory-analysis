@@ -1,0 +1,362 @@
+[
+  {
+    "step": 1,
+    "label": "N",
+    "rationale": "Opening Simple Gallery Pro is required to inspect recipes.jpg.",
+    "action": "{\"action\": \"open_app\", \"text\": \"Simple Gallery Pro\"}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/001_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/001_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/001_step.json",
+    "decision_summary": "Perform open_app."
+  },
+  {
+    "step": 2,
+    "label": "N",
+    "rationale": "Opening the DCIM folder is appropriate for locating the requested image.",
+    "action": "{\"action\": \"click\", \"coordinate\": [230, 480]}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/002_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/002_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/002_step.json",
+    "decision_summary": "Perform click."
+  },
+  {
+    "step": 3,
+    "label": "N",
+    "rationale": "Opening recipes.jpg exposes the recipe text that must be transferred.",
+    "action": "{\"action\": \"click\", \"coordinate\": [155, 420]}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/003_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/003_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/003_step.json",
+    "decision_summary": "Perform click."
+  },
+  {
+    "step": 4,
+    "label": "N",
+    "rationale": "Opening Broccoli after inspecting the image is the correct transition toward entering the recipes.",
+    "action": "{\"action\": \"open_app\", \"text\": \"Broccoli\"}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/004_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/004_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/004_step.json",
+    "decision_summary": "Perform open_app."
+  },
+  {
+    "step": 5,
+    "label": "N",
+    "rationale": "The first return to recipes.jpg is a reasonable attempt to reread details before manual entry.",
+    "action": "{\"action\": \"open_app\", \"text\": \"Simple Gallery Pro\"}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/005_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/005_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/005_step.json",
+    "decision_summary": "Perform open_app."
+  },
+  {
+    "step": 6,
+    "label": "N",
+    "rationale": "Returning to Broccoli after consulting the image is task-relevant.",
+    "action": "{\"action\": \"open_app\", \"text\": \"Broccoli\"}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/006_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/006_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/006_step.json",
+    "decision_summary": "Open the Broccoli recipe app."
+  },
+  {
+    "step": 7,
+    "label": "E",
+    "rationale": "The action again leaves Broccoli for the image without selecting the visible New Recipe control or entering any recipe, repeating the same unproductive toggle.",
+    "action": "{\"action\": \"open_app\", \"text\": \"Simple Gallery Pro\"}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/007_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/007_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/007_step.json",
+    "decision_summary": "Open Simple Gallery Pro."
+  },
+  {
+    "step": 8,
+    "label": "N",
+    "rationale": "Returning to Broccoli is a task-relevant recovery from the image consultation.",
+    "action": "{\"action\": \"open_app\", \"text\": \"Broccoli\"}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/008_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/008_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/008_step.json",
+    "decision_summary": "Perform open_app."
+  },
+  {
+    "step": 9,
+    "label": "E",
+    "rationale": "The action repeats the Broccoli-to-gallery switch without beginning entry through the persistently visible New Recipe control.",
+    "action": "{\"action\": \"open_app\", \"text\": \"Simple Gallery Pro\"}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/009_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/009_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/009_step.json",
+    "decision_summary": "Perform open_app."
+  },
+  {
+    "step": 10,
+    "label": "N",
+    "rationale": "Opening Broccoli again is necessary to enter the recipes and does not itself select an incorrect target.",
+    "action": "{\"action\": \"open_app\", \"text\": \"Broccoli\"}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/010_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/010_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/010_step.json",
+    "decision_summary": "Perform open_app."
+  },
+  {
+    "step": 11,
+    "label": "E",
+    "rationale": "The action again abandons the Broccoli recipe list for recipes.jpg without starting either visible recipe entry.",
+    "action": "{\"action\": \"open_app\", \"text\": \"Simple Gallery Pro\"}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/011_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/011_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/011_step.json",
+    "decision_summary": "Perform open_app."
+  },
+  {
+    "step": 12,
+    "label": "N",
+    "rationale": "Returning to Broccoli is task-relevant recovery navigation.",
+    "action": "{\"action\": \"open_app\", \"text\": \"Broccoli\"}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/012_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/012_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/012_step.json",
+    "decision_summary": "Perform open_app."
+  },
+  {
+    "step": 13,
+    "label": "E",
+    "rationale": "The action repeats the established app-switching loop instead of using New Recipe to enter the already inspected content.",
+    "action": "{\"action\": \"open_app\", \"text\": \"Simple Gallery Pro\"}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/013_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/013_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/013_step.json",
+    "decision_summary": "Perform open_app."
+  },
+  {
+    "step": 14,
+    "label": "N",
+    "rationale": "Opening Broccoli again returns to the correct destination app.",
+    "action": "{\"action\": \"open_app\", \"text\": \"Broccoli\"}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/014_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/014_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/014_step.json",
+    "decision_summary": "Perform open_app."
+  },
+  {
+    "step": 15,
+    "label": "E",
+    "rationale": "The action again leaves Broccoli without creating or editing a recipe, repeating the demonstrated ineffective strategy.",
+    "action": "{\"action\": \"open_app\", \"text\": \"Simple Gallery Pro\"}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/015_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/015_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/015_step.json",
+    "decision_summary": "Perform open_app."
+  },
+  {
+    "step": 16,
+    "label": "N",
+    "rationale": "Returning to Broccoli is a correct destination choice even though no entry is made in this transition.",
+    "action": "{\"action\": \"open_app\", \"text\": \"Broccoli\"}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/016_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/016_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/016_step.json",
+    "decision_summary": "Perform open_app."
+  },
+  {
+    "step": 17,
+    "label": "E",
+    "rationale": "The action repeats the same departure from Broccoli to recipes.jpg without using the visible recipe-creation control.",
+    "action": "{\"action\": \"open_app\", \"text\": \"Simple Gallery Pro\"}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/017_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/017_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/017_step.json",
+    "decision_summary": "Perform open_app."
+  },
+  {
+    "step": 18,
+    "label": "N",
+    "rationale": "Opening Broccoli again is task-relevant recovery navigation.",
+    "action": "{\"action\": \"open_app\", \"text\": \"Broccoli\"}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/018_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/018_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/018_step.json",
+    "decision_summary": "Perform open_app."
+  },
+  {
+    "step": 19,
+    "label": "E",
+    "rationale": "The action again leaves the recipe app without starting entry, continuing the already repeated unproductive toggle.",
+    "action": "{\"action\": \"open_app\", \"text\": \"Simple Gallery Pro\"}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/019_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/019_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/019_step.json",
+    "decision_summary": "Open Simple Gallery Pro."
+  },
+  {
+    "step": 20,
+    "label": "N",
+    "rationale": "Returning to Broccoli remains the correct destination for entering the image recipes.",
+    "action": "{\"action\": \"open_app\", \"text\": \"Broccoli\"}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/020_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/020_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/020_step.json",
+    "decision_summary": "Perform open_app."
+  },
+  {
+    "step": 21,
+    "label": "E",
+    "rationale": "The action repeats another Broccoli-to-gallery switch without creating either requested recipe.",
+    "action": "{\"action\": \"open_app\", \"text\": \"Simple Gallery Pro\"}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/021_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/021_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/021_step.json",
+    "decision_summary": "Perform open_app."
+  },
+  {
+    "step": 22,
+    "label": "N",
+    "rationale": "Opening Broccoli again returns to the task-appropriate app.",
+    "action": "{\"action\": \"open_app\", \"text\": \"Broccoli\"}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/022_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/022_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/022_step.json",
+    "decision_summary": "Perform open_app."
+  },
+  {
+    "step": 23,
+    "label": "E",
+    "rationale": "The action again abandons the visible New Recipe workflow and returns to the same image after many ineffective app switches.",
+    "action": "{\"action\": \"open_app\", \"text\": \"Simple Gallery Pro\"}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/023_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/023_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/023_step.json",
+    "decision_summary": "Perform open_app."
+  },
+  {
+    "step": 24,
+    "label": "N",
+    "rationale": "Opening the image share sheet is a reasonable first attempt to determine whether recipes.jpg can be sent directly to Broccoli.",
+    "action": "{\"action\": \"click\", \"coordinate\": [670, 2250]}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/024_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/024_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/024_step.json",
+    "decision_summary": "Perform click."
+  },
+  {
+    "step": 25,
+    "label": "N",
+    "rationale": "Swiping the share-target row is a reasonable search for an additional Broccoli target after it is not initially visible.",
+    "action": "{\"action\": \"swipe\", \"coordinate\": [958, 2151], \"coordinate2\": [160, 2151]}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/025_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/025_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/025_step.json",
+    "decision_summary": "Swipe left across the share-target row to view more apps."
+  },
+  {
+    "step": 26,
+    "label": "N",
+    "rationale": "Closing the share sheet after no Broccoli target appears is appropriate recovery.",
+    "action": "{\"action\": \"system_button\", \"button\": \"Back\"}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/026_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/026_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/026_step.json",
+    "decision_summary": "Perform system_button."
+  },
+  {
+    "step": 27,
+    "label": "N",
+    "rationale": "Opening Broccoli after abandoning the unavailable share path returns to the correct app.",
+    "action": "{\"action\": \"open_app\", \"text\": \"Broccoli\"}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/027_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/027_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/027_step.json",
+    "decision_summary": "Perform open_app."
+  },
+  {
+    "step": 28,
+    "label": "N",
+    "rationale": "Opening Broccoli navigation is exploratory while checking for an import route and does not alter recipe data.",
+    "action": "{\"action\": \"click\", \"coordinate\": [76, 210]}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/028_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/028_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/028_step.json",
+    "decision_summary": "Perform click."
+  },
+  {
+    "step": 29,
+    "label": "E",
+    "rationale": "The action leaves Broccoli for recipes.jpg yet again after both the repeated toggle and share route failed, rather than starting manual entry.",
+    "action": "{\"action\": \"open_app\", \"text\": \"Simple Gallery Pro\"}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/029_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/029_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/029_step.json",
+    "decision_summary": "Perform open_app."
+  },
+  {
+    "step": 30,
+    "label": "N",
+    "rationale": "Returning to Broccoli is task-relevant and no incorrect recipe data is entered in this transition.",
+    "action": "{\"action\": \"open_app\", \"text\": \"Broccoli\"}",
+    "images": {
+      "before": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/030_before.png",
+      "after": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/030_after.png"
+    },
+    "record": "cases/gpt/P3/RecipeAddMultipleRecipesFromImage_0/030_step.json",
+    "decision_summary": "Perform open_app."
+  }
+]

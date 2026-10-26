@@ -1,0 +1,157 @@
+[
+  {
+    "step": 1,
+    "label": "N",
+    "rationale": "Opening Audio Recorder directly from the home screen correctly begins the requested recording task.",
+    "action": "{\"action\": \"Open App\", \"kwargs\": {\"app_name\": \"Audio Recorder\"}, \"operation\": \"do\"}",
+    "images": {
+      "before": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/001_before.png",
+      "after": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/001_after.png"
+    },
+    "record": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/001_step.json",
+    "decision_summary": ""
+  },
+  {
+    "step": 2,
+    "label": "N",
+    "rationale": "Tapping Get started advances from onboarding to the app's required setup screen.",
+    "action": "{\"action\": \"Tap\", \"kwargs\": {\"element\": [539, 2148]}, \"operation\": \"do\"}",
+    "images": {
+      "before": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/002_before.png",
+      "after": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/002_after.png"
+    },
+    "record": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/002_step.json",
+    "decision_summary": ""
+  },
+  {
+    "step": 3,
+    "label": "N",
+    "rationale": "Applying the default M4a setup is compatible with the requested extension and reaches the recorder.",
+    "action": "{\"action\": \"Tap\", \"kwargs\": {\"element\": [807, 2253]}, \"operation\": \"do\"}",
+    "images": {
+      "before": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/003_before.png",
+      "after": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/003_after.png"
+    },
+    "record": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/003_step.json",
+    "decision_summary": ""
+  },
+  {
+    "step": 4,
+    "label": "N",
+    "rationale": "Tapping the record control starts recording, as confirmed by the running timer and Recording status.",
+    "action": "{\"action\": \"Tap\", \"kwargs\": {\"element\": [539, 2184]}, \"operation\": \"do\"}",
+    "images": {
+      "before": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/004_before.png",
+      "after": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/004_after.png"
+    },
+    "record": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/004_step.json",
+    "decision_summary": ""
+  },
+  {
+    "step": 5,
+    "label": "N",
+    "rationale": "Tapping stop ends the active recording and opens the naming dialog, which is necessary to save the clip.",
+    "action": "{\"action\": \"Tap\", \"kwargs\": {\"element\": [742, 2184]}, \"operation\": \"do\"}",
+    "images": {
+      "before": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/005_before.png",
+      "after": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/005_after.png"
+    },
+    "record": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/005_step.json",
+    "decision_summary": ""
+  },
+  {
+    "step": 6,
+    "label": "E",
+    "rationale": "Typing without clearing the existing Record-1 value appends the requested name, producing Record-1presentation_fGwr.m4a instead of the required filename.",
+    "action": "{\"action\": \"Type\", \"kwargs\": {\"text\": \"presentation_fGwr.m4a\"}, \"operation\": \"do\"}",
+    "images": {
+      "before": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/006_before.png",
+      "after": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/006_after.png"
+    },
+    "record": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/006_step.json",
+    "decision_summary": ""
+  },
+  {
+    "step": 7,
+    "label": "E",
+    "rationale": "A single Delete press at the end cannot remove the unwanted Record-1 prefix and does not establish a correct filename.",
+    "action": "{\"action\": \"Tap\", \"kwargs\": {\"element\": [994, 2040]}, \"operation\": \"do\"}",
+    "images": {
+      "before": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/007_before.png",
+      "after": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/007_after.png"
+    },
+    "record": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/007_step.json",
+    "decision_summary": ""
+  },
+  {
+    "step": 8,
+    "label": "E",
+    "rationale": "Typing the target name again does not replace the malformed field; the filename remains incorrect and the unrelated Don't ask again option becomes checked.",
+    "action": "{\"action\": \"Type\", \"kwargs\": {\"text\": \"presentation_fGwr.m4a\"}, \"operation\": \"do\"}",
+    "images": {
+      "before": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/008_before.png",
+      "after": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/008_after.png"
+    },
+    "record": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/008_step.json",
+    "decision_summary": ""
+  },
+  {
+    "step": 9,
+    "label": "N",
+    "rationale": "Tapping the filename field places the cursor for further editing and does not itself worsen or commit the malformed name.",
+    "action": "{\"action\": \"Tap\", \"kwargs\": {\"element\": [540, 744]}, \"operation\": \"do\"}",
+    "images": {
+      "before": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/009_before.png",
+      "after": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/009_after.png"
+    },
+    "record": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/009_step.json",
+    "decision_summary": ""
+  },
+  {
+    "step": 10,
+    "label": "E",
+    "rationale": "Typing at the mid-string cursor inserts another copy of the target text, further corrupting the filename instead of replacing it.",
+    "action": "{\"action\": \"Type\", \"kwargs\": {\"text\": \"presentation_fGwr.m4a\"}, \"operation\": \"do\"}",
+    "images": {
+      "before": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/010_before.png",
+      "after": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/010_after.png"
+    },
+    "record": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/010_step.json",
+    "decision_summary": ""
+  },
+  {
+    "step": 11,
+    "label": "E",
+    "rationale": "The agent knowingly taps Save while the field contains a visibly malformed duplicated name, committing the recording under the wrong filename.",
+    "action": "{\"action\": \"Tap\", \"kwargs\": {\"element\": [820, 1003]}, \"operation\": \"do\"}",
+    "images": {
+      "before": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/011_before.png",
+      "after": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/011_after.png"
+    },
+    "record": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/011_step.json",
+    "decision_summary": ""
+  },
+  {
+    "step": 12,
+    "label": "N",
+    "rationale": "Opening the records list is a valid verification action and confirms the saved recording and its displayed filename without causing a new error.",
+    "action": "{\"action\": \"Tap\", \"kwargs\": {\"element\": [969, 2184]}, \"operation\": \"do\"}",
+    "images": {
+      "before": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/012_before.png",
+      "after": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/012_after.png"
+    },
+    "record": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/012_step.json",
+    "decision_summary": ""
+  },
+  {
+    "step": 13,
+    "label": "E",
+    "rationale": "录音列表实际保存名为Record-1presentatipresentation_fGwr.m4aon_fGwr.m4a，与要求精确文件名presentation_fGwr.m4a不同；模型以仅包含目标子串为由宣布已按指定名保存，错误终止。",
+    "action": "{\"action\": \"finish\", \"kwargs\": {\"message\": \"AppAgent finished.\"}, \"operation\": \"finish\"}",
+    "images": {
+      "before": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/013_before.png"
+    },
+    "record": "cases/gemini/P2/AudioRecorderRecordAudioWithFileName_0/013_step.json",
+    "decision_summary": ""
+  }
+]
